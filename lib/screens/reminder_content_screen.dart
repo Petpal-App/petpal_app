@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:petpal_app/models/question.dart';
-import 'package:petpal_app/screens/category_screen.dart';
-import 'package:petpal_app/widgets/video_player.dart';
+import 'package:petpal_app/screens/reminder_screen.dart';
 import 'package:petpal_app/widgets/youtube_player.dart';
 
-class QuizScreen extends StatelessWidget {
+class ReminderContentScreen extends StatelessWidget {
   final String category;
   final QuestionList questionList;
   final int index;
 
-  QuizScreen(
+  ReminderContentScreen(
       {required this.category,
       required this.questionList,
       required this.index});
@@ -33,15 +32,15 @@ class QuizScreen extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushReplacement(
+                Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: index < questionList.count - 1
-                          ? (context) => QuizScreen(
+                          ? (context) => ReminderContentScreen(
                               category: category,
                               questionList: questionList,
                               index: index + 1)
-                          : (context) => CategoryScreen()),
+                          : (context) => ReminderScreen()),
                 );
               },
               child: Text(questionList.questions[index].options[0]),
@@ -52,11 +51,11 @@ class QuizScreen extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: index < questionList.count - 1
-                          ? (context) => QuizScreen(
+                          ? (context) => ReminderContentScreen(
                               category: category,
                               questionList: questionList,
                               index: index + 1)
-                          : (context) => CategoryScreen()),
+                          : (context) => ReminderScreen()),
                 );
               },
               child: Text(questionList.questions[index].options[1]),
@@ -67,11 +66,11 @@ class QuizScreen extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: index < questionList.count - 1
-                          ? (context) => QuizScreen(
+                          ? (context) => ReminderContentScreen(
                               category: category,
                               questionList: questionList,
                               index: index + 1)
-                          : (context) => CategoryScreen()),
+                          : (context) => ReminderScreen()),
                 );
               },
               child: Text(questionList.questions[index].options[2]),

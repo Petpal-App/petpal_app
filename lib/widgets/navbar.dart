@@ -4,7 +4,7 @@ import '../screens/category_screen.dart';
 
 class NavBar extends StatelessWidget {
   final int currentIndex;
-  NavBar({this.currentIndex});
+  NavBar({required this.currentIndex});
 
   void _onItemTapped(BuildContext context, int index) {
     switch (index) {
