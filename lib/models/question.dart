@@ -2,6 +2,7 @@ class Question {
   final int id;
   final String questionText;
   final List<String> options;
+  final int correctOptionIndex;
   final String videoId;
   int status;
 
@@ -10,7 +11,8 @@ class Question {
       required this.questionText,
       required this.options,
       required this.videoId,
-      required this.status});
+      required this.status,
+      required this.correctOptionIndex});
 }
 
 class QuestionList {
