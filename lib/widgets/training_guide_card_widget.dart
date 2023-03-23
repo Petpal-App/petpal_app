@@ -25,7 +25,7 @@ class TrainingGuideCard extends StatelessWidget {
       width: (deviceWidth - 12 * 2 - 4) / 2, //deviceWidth - 12 * 2,
       height: ((deviceHeight / 2) - 12 - (10 * 2) - 45 - 4 - 4) / 2 - 2,
       decoration: BoxDecoration(
-        color: CupertinoColors.white,
+        color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
       child: Card(
@@ -50,7 +50,7 @@ class TrainingGuideCard extends StatelessWidget {
               //padding: EdgeInsets.symmetric(horizontal: 20.0),
               child: Text(
                 cardName,
-                style: TextStyle(fontSize: 25, color: CupertinoColors.black),
+                style: TextStyle(fontSize: 25, color: Colors.black),
               ),
             ),
           ),
