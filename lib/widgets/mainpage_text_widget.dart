@@ -18,8 +18,9 @@ class MainPageDescriptionText extends StatelessWidget {
           child: Text(
             'Understand',
             style: TextStyle(
-              fontSize: 20,
+              fontSize: 25,
               fontWeight: FontWeight.w500,
+              fontFamily: Theme.of(context).textTheme.headlineLarge?.fontFamily,
             ),
           ),
         ),
@@ -32,8 +33,9 @@ class MainPageDescriptionText extends StatelessWidget {
           child: Text(
             'and',
             style: TextStyle(
-              fontSize: 20,
+              fontSize: 25,
               fontWeight: FontWeight.w400,
+              fontFamily: Theme.of(context).textTheme.headlineLarge?.fontFamily,
             ),
           ),
         ),
@@ -46,8 +48,9 @@ class MainPageDescriptionText extends StatelessWidget {
           child: Text(
             'Communicate With Your Pets',
             style: TextStyle(
-              fontSize: 20,
+              fontSize: 25,
               fontWeight: FontWeight.w500,
+              fontFamily: Theme.of(context).textTheme.headlineLarge?.fontFamily,
             ),
           ),
         ),

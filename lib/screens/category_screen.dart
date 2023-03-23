@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
+import '../main.dart';
 import '../widgets/navbar.dart';
-import '../widgets/question_card_widget.dart';
-import '../widgets/training_guide_card_widget.dart';
-import '../datas/question_data.dart';
-import '../datas/training_guide_data.dart';
 import '../widgets/mainpage_text_widget.dart';
+import '../widgets/mainpage_training_listview.dart';
+import '../widgets/mainpage_bodylanguage_listview.dart';
 
 class CategoryScreen extends StatelessWidget {
   @override
@@ -41,8 +39,10 @@ class CategoryScreen extends StatelessWidget {
                   'Home',
                   style: TextStyle(
                     fontStyle: FontStyle.italic,
-                    fontSize: 30,
+                    fontSize: 40,
                     fontWeight: FontWeight.bold,
+                    fontFamily:
+                        Theme.of(context).textTheme.headlineLarge?.fontFamily,
                   ),
                   textAlign: TextAlign.left,
                 ),
@@ -59,202 +59,132 @@ class CategoryScreen extends StatelessWidget {
                 ),
                 child: MainPageDescriptionText(deviceWidth),
               ),
+              SizedBox(
+                height: 10,
+              ),
               Column(
                 children: [
                   Container(
-                    width: deviceWidth,
-                    height: (deviceHeight / 2) - 12,
-                    //deviceHeight - 4 times margin
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(
-                        color: Colors.white,
-                        width: 2,
-                      ),
-                      borderRadius: BorderRadius.all(Radius.circular(5)),
-                    ),
-                    child: Card(
-                      elevation: 20,
-                      margin:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 12),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            height: 45,
-                            child: Text(
-                              'Body Language',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                height: 1.3,
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black,
-                              ),
+                    height: (deviceHeight / 3.3),
+                    child: Column(
+                      children: [
+                        Container(
+                          height: 30,
+                          width: deviceWidth,
+                          padding: const EdgeInsets.only(left: 14.0),
+                          margin: const EdgeInsets.only(bottom: 5),
+                          child: Text(
+                            'Body Language',
+                            style: TextStyle(
+                              fontSize: 23,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: Theme.of(context)
+                                  .textTheme
+                                  .headlineLarge
+                                  ?.fontFamily,
                             ),
+                            textAlign: TextAlign.left,
                           ),
-                          Container(
-                            width: deviceWidth - 12 * 2,
-                            //10 = horizontal padding * 2
-                            height: (deviceHeight / 2) - 12 - (10 * 2) - 45 - 4,
-                            //width와 height는 deviceHeight를 기준으로 하드코딩 했습니다.
-                            //만약에 안되면 pixel4 API 33로 돌려보세요.
-                            child: Column(
-                              children: [
-                                Container(
-                                  width: deviceWidth - 12 * 2,
-                                  height: ((deviceHeight / 2) -
-                                          12 -
-                                          (10 * 2) -
-                                          45 -
-                                          4 -
-                                          4) /
-                                      2,
-                                  child: Row(
-                                    children: [
-                                      QuestionCard(
-                                        deviceHeight: deviceHeight,
-                                        deviceWidth: deviceWidth,
-                                        questionList: questionList,
-                                        cardName: 'Dog',
-                                      ),
-                                      QuestionCard(
-                                        deviceHeight: deviceHeight,
-                                        deviceWidth: deviceWidth,
-                                        questionList: questionList,
-                                        cardName: 'Cat',
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  width: deviceWidth - 12 * 2,
-                                  height: ((deviceHeight / 2) -
-                                          12 -
-                                          (10 * 2) -
-                                          45 -
-                                          4 -
-                                          4) /
-                                      2,
-                                  child: Row(
-                                    children: [
-                                      QuestionCard(
-                                        deviceHeight: deviceHeight,
-                                        deviceWidth: deviceWidth,
-                                        questionList: questionList,
-                                        cardName: 'Bird',
-                                      ),
-                                      QuestionCard(
-                                        deviceHeight: deviceHeight,
-                                        deviceWidth: deviceWidth,
-                                        questionList: questionList,
-                                        cardName: 'Fish',
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
+                        ),
+                        Container(
+                          height: 30,
+                          width: deviceWidth,
+                          padding: const EdgeInsets.only(left: 14.0),
+                          margin: const EdgeInsets.only(bottom: 5),
+                          child: Text(
+                            'Speak your pets language!',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontFamily: Theme.of(context)
+                                  .textTheme
+                                  .headlineLarge
+                                  ?.fontFamily,
                             ),
+                            textAlign: TextAlign.left,
                           ),
-                        ],
-                      ),
+                        ),
+                        Container(
+                          height: (((deviceHeight / 2.5) -
+                                  12 -
+                                  (10 * 2) -
+                                  45 -
+                                  4 -
+                                  4) /
+                              2),
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: BodyLanguageListView(
+                            deviceHeight: deviceHeight,
+                            deviceWidth: deviceWidth,
+                            cardName1: 'Dog',
+                            cardName2: 'Cat',
+                            cardName3: 'Bird',
+                            cardName4: 'Fish',
+                          ),
+                        ),
+                      ],
                     ),
                   ),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Container(
-                    width: deviceWidth,
-                    height: (deviceHeight / 2) - 12,
-                    //deviceHeight - 4 times margin
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(
-                        color: Colors.white,
-                        width: 2,
-                      ),
-                      borderRadius: BorderRadius.all(Radius.circular(5)),
-                    ),
-                    child: Card(
-                      elevation: 20,
-                      margin:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 12),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            height: 45,
-                            child: Text(
-                              'Training',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                height: 1.3,
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black,
-                              ),
+                    height: (deviceHeight / 2.5) - 6,
+                    child: Column(
+                      children: [
+                        Container(
+                          height: 30,
+                          width: deviceWidth,
+                          padding: const EdgeInsets.only(left: 14.0),
+                          margin: const EdgeInsets.only(bottom: 5),
+                          child: Text(
+                            'Training Guide',
+                            style: TextStyle(
+                              fontSize: 23,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: Theme.of(context)
+                                  .textTheme
+                                  .headlineLarge
+                                  ?.fontFamily,
                             ),
+                            textAlign: TextAlign.left,
                           ),
-                          Container(
-                            width: deviceWidth - 12 * 2,
-                            //10 = horizontal padding * 2
-                            height: (deviceHeight / 2) - 12 - (10 * 2) - 45 - 4,
-                            child: Column(
-                              children: [
-                                Container(
-                                  width: deviceWidth - 12 * 2,
-                                  height: ((deviceHeight / 2) -
-                                          12 -
-                                          (10 * 2) -
-                                          45 -
-                                          4 -
-                                          4) /
-                                      2,
-                                  child: Row(
-                                    children: [
-                                      TrainingGuideCard(
-                                        deviceHeight: deviceHeight,
-                                        deviceWidth: deviceWidth,
-                                        trainingGuideList: trainingGuideList,
-                                        cardName: 'Dog',
-                                      ),
-                                      TrainingGuideCard(
-                                        deviceHeight: deviceHeight,
-                                        deviceWidth: deviceWidth,
-                                        trainingGuideList: trainingGuideList,
-                                        cardName: 'Cat',
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  width: deviceWidth - 12 * 2,
-                                  height: ((deviceHeight / 2) -
-                                          12 -
-                                          (10 * 2) -
-                                          45 -
-                                          4 -
-                                          4) /
-                                      2,
-                                  child: Row(
-                                    children: [
-                                      TrainingGuideCard(
-                                        deviceHeight: deviceHeight,
-                                        deviceWidth: deviceWidth,
-                                        trainingGuideList: trainingGuideList,
-                                        cardName: 'Bird',
-                                      ),
-                                      TrainingGuideCard(
-                                        deviceHeight: deviceHeight,
-                                        deviceWidth: deviceWidth,
-                                        trainingGuideList: trainingGuideList,
-                                        cardName: 'Fish',
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
+                        ),
+                        Container(
+                          height: 30,
+                          width: deviceWidth,
+                          padding: const EdgeInsets.only(left: 14.0),
+                          margin: const EdgeInsets.only(bottom: 5),
+                          child: Text(
+                            'Train your pet!',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontFamily: Theme.of(context)
+                                  .textTheme
+                                  .headlineLarge
+                                  ?.fontFamily,
                             ),
+                            textAlign: TextAlign.left,
                           ),
-                        ],
-                      ),
+                        ),
+                        Container(
+                          height: (((deviceHeight / 2.5) -
+                                  12 -
+                                  (10 * 2) -
+                                  45 -
+                                  4 -
+                                  4) /
+                              2),
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: TrainingListView(
+                            deviceHeight: deviceHeight,
+                            deviceWidth: deviceWidth,
+                            cardName1: 'Dog',
+                            cardName2: 'Cat',
+                            cardName3: 'Bird',
+                            cardName4: 'Fish',
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
