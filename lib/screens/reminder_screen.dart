@@ -5,6 +5,26 @@ import 'reminder_content_screen.dart';
 import '../datas/question_data.dart';
 
 class ReminderScreen extends StatelessWidget {
+  static final List<Question> dogQuestions = dogQuestionList.questions
+      .where((element) => element.status == 1)
+      .toList();
+  static final List<Question> catQuestions = catQuestionList.questions
+      .where((element) => element.status == 1)
+      .toList();
+  static final List<Question> birdQuestions = birdQuestionList.questions
+      .where((element) => element.status == 1)
+      .toList();
+  static final List<Question> fishQuestions = catQuestionList.questions
+      .where((element) => element.status == 1)
+      .toList();
+  final QuestionList filteredDogQuestionList =
+      new QuestionList(questions: dogQuestions, count: dogQuestions.length);
+  final QuestionList filteredCatQuestionList =
+      new QuestionList(questions: catQuestions, count: catQuestions.length);
+  final QuestionList filteredBirdQuestionList =
+      new QuestionList(questions: birdQuestions, count: birdQuestions.length);
+  final QuestionList filteredFishQuestionList =
+      new QuestionList(questions: fishQuestions, count: fishQuestions.length);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +43,7 @@ class ReminderScreen extends StatelessWidget {
                     MaterialPageRoute(
                       builder: (context) => ReminderContentScreen(
                         category: 'Dogs',
-                        questionList: dogQuestionList,
+                        questionList: filteredDogQuestionList,
                         index: 0,
                       ),
                     ),
@@ -53,7 +73,7 @@ class ReminderScreen extends StatelessWidget {
                     MaterialPageRoute(
                       builder: (context) => ReminderContentScreen(
                         category: 'Cats',
-                        questionList: catQuestionList,
+                        questionList: filteredCatQuestionList,
                         index: 0,
                       ),
                     ),
@@ -83,7 +103,7 @@ class ReminderScreen extends StatelessWidget {
                     MaterialPageRoute(
                       builder: (context) => ReminderContentScreen(
                         category: 'Birds',
-                        questionList: birdQuestionList,
+                        questionList: filteredBirdQuestionList,
                         index: 0,
                       ),
                     ),
@@ -95,6 +115,36 @@ class ReminderScreen extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 20.0),
                     child: Text(
                       "Birds",
+                      style: TextStyle(fontSize: 60, color: Colors.orange),
+                    ),
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  side: BorderSide(width: 1, color: Colors.grey),
+                ),
+              ),
+            ),
+            Expanded(
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ReminderContentScreen(
+                        category: 'Fish',
+                        questionList: filteredFishQuestionList,
+                        index: 0,
+                      ),
+                    ),
+                  );
+                },
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Text(
+                      "Fish",
                       style: TextStyle(fontSize: 60, color: Colors.orange),
                     ),
                   ),
