@@ -1,34 +1,35 @@
 import 'package:flutter/material.dart';
 
-import '../models/question.dart';
 import '../screens/category_screen.dart';
 import '../widgets/video_player.dart';
 import '../widgets/youtube_player.dart';
+import '../models/training_guide.dart';
 
-class QuizScreen extends StatelessWidget {
+class GuideScreen extends StatelessWidget {
   final String category;
-  final QuestionList questionList;
+  final TrainingGuideList trainingGuideList;
   final int index;
 
-  QuizScreen(
+  GuideScreen(
       {required this.category,
-      required this.questionList,
+      required this.trainingGuideList,
       required this.index});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Quiz - $category'),
+        title: Text('Training Guide - $category'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            YoutubePlayerWidget(videoId: questionList.questions[index].videoId),
+            YoutubePlayerWidget(
+                videoId: trainingGuideList.guides[index].videoId),
             SizedBox(height: 20),
             Text(
-              questionList.questions[index].questionText,
+              trainingGuideList.guides[index].trainingGuideText,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 20),
@@ -37,45 +38,45 @@ class QuizScreen extends StatelessWidget {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                      builder: index < questionList.count - 1
-                          ? (context) => QuizScreen(
+                      builder: index < trainingGuideList.count - 1
+                          ? (context) => GuideScreen(
                               category: category,
-                              questionList: questionList,
+                              trainingGuideList: trainingGuideList,
                               index: index + 1)
                           : (context) => CategoryScreen()),
                 );
               },
-              child: Text(questionList.questions[index].options[0]),
+              child: Text(trainingGuideList.guides[index].options[0]),
             ),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: index < questionList.count - 1
-                          ? (context) => QuizScreen(
+                      builder: index < trainingGuideList.count - 1
+                          ? (context) => GuideScreen(
                               category: category,
-                              questionList: questionList,
+                              trainingGuideList: trainingGuideList,
                               index: index + 1)
                           : (context) => CategoryScreen()),
                 );
               },
-              child: Text(questionList.questions[index].options[1]),
+              child: Text(trainingGuideList.guides[index].options[1]),
             ),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: index < questionList.count - 1
-                          ? (context) => QuizScreen(
+                      builder: index < trainingGuideList.count - 1
+                          ? (context) => GuideScreen(
                               category: category,
-                              questionList: questionList,
+                              trainingGuideList: trainingGuideList,
                               index: index + 1)
                           : (context) => CategoryScreen()),
                 );
               },
-              child: Text(questionList.questions[index].options[2]),
+              child: Text(trainingGuideList.guides[index].options[2]),
             ),
           ],
         ),

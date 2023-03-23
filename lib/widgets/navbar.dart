@@ -29,19 +29,22 @@ class NavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      items: [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.category),
-          label: 'Category',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.history),
-          label: 'Reminder',
-        ),
-      ],
-      currentIndex: currentIndex,
-      onTap: (index) => _onItemTapped(context, index),
+    return SizedBox(
+      height: 56,
+      child: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.category),
+            label: 'Category',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.history),
+            label: 'Reminder',
+          ),
+        ],
+        currentIndex: currentIndex,
+        onTap: (index) => _onItemTapped(context, index),
+      ),
     );
   }
 }
