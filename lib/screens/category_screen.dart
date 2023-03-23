@@ -83,13 +83,13 @@ class CategoryScreen extends StatelessWidget {
                               QuestionCard(
                                 deviceHeight: deviceHeight,
                                 deviceWidth: deviceWidth,
-                                questionList: questionList,
+                                questionList: dogQuestionList,
                                 cardName: 'Dog',
                               ),
                               QuestionCard(
                                 deviceHeight: deviceHeight,
                                 deviceWidth: deviceWidth,
-                                questionList: questionList,
+                                questionList: catQuestionList,
                                 cardName: 'Cat',
                               ),
                             ],
@@ -109,13 +109,13 @@ class CategoryScreen extends StatelessWidget {
                               QuestionCard(
                                 deviceHeight: deviceHeight,
                                 deviceWidth: deviceWidth,
-                                questionList: questionList,
+                                questionList: birdQuestionList,
                                 cardName: 'Bird',
                               ),
                               QuestionCard(
                                 deviceHeight: deviceHeight,
                                 deviceWidth: deviceWidth,
-                                questionList: questionList,
+                                questionList: fishQuestionList,
                                 cardName: 'Fish',
                               ),
                             ],

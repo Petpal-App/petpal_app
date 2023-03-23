@@ -2,26 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:petpal_app/models/question.dart';
 import '../widgets/navbar.dart';
 import 'reminder_content_screen.dart';
+import '../datas/question_data.dart';
 
 class ReminderScreen extends StatelessWidget {
-  final QuestionList questionList = (new QuestionList(questions: [
-    new Question(
-        id: 1,
-        questionText: "문제 1",
-        options: ["정답", "오답", "오답"],
-        videoId: "A2-8IDBl6bk"),
-    new Question(
-        id: 2,
-        questionText: "문제 2",
-        options: ["정답", "오답", "오답"],
-        videoId: "A2-8IDBl6bk"),
-    new Question(
-        id: 3,
-        questionText: "문제 3",
-        options: ["정답", "오답", "오답"],
-        videoId: "A2-8IDBl6bk")
-  ], count: 3));
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +23,7 @@ class ReminderScreen extends StatelessWidget {
                     MaterialPageRoute(
                       builder: (context) => ReminderContentScreen(
                         category: 'Dogs',
-                        questionList: questionList,
+                        questionList: dogQuestionList,
                         index: 0,
                       ),
                     ),
@@ -70,7 +53,7 @@ class ReminderScreen extends StatelessWidget {
                     MaterialPageRoute(
                       builder: (context) => ReminderContentScreen(
                         category: 'Cats',
-                        questionList: questionList,
+                        questionList: catQuestionList,
                         index: 0,
                       ),
                     ),
@@ -100,7 +83,7 @@ class ReminderScreen extends StatelessWidget {
                     MaterialPageRoute(
                       builder: (context) => ReminderContentScreen(
                         category: 'Birds',
-                        questionList: questionList,
+                        questionList: birdQuestionList,
                         index: 0,
                       ),
                     ),
