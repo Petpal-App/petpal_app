@@ -128,7 +128,7 @@ class CategoryScreen extends StatelessWidget {
                     height: 10,
                   ),
                   Container(
-                    height: (deviceHeight / 2.5) - 6,
+                    height: (deviceHeight / 3.3),
                     child: Column(
                       children: [
                         Container(
