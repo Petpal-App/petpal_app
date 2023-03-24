@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../models/training_guide.dart';
 
-final TrainingGuideList trainingGuideList = (new TrainingGuideList(guides: [
+TrainingGuideList trainingGuideList = (new TrainingGuideList(guides: [
   new TrainingGuide(
       id: 1,
       trainingGuideText: "가이드 1",
