@@ -54,6 +54,7 @@ class ReminderScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+
         systemOverlayStyle: SystemUiOverlayStyle(
           statusBarColor: AppColor.whiteColor,
           statusBarIconBrightness: Brightness.dark,
@@ -62,7 +63,9 @@ class ReminderScreen extends StatelessWidget {
         foregroundColor: AppColor.blackColor,
         toolbarHeight: MediaQuery.of(context).viewPadding.top,
         elevation: 0,
-        title: Text('Reminder Categories'),
+        title: Text('Reminder Categories', style: TextStyle(
+            fontFamily: Theme.of(context).textTheme.bodyMedium?.fontFamily,
+          ),),
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -88,6 +91,20 @@ class ReminderScreen extends StatelessWidget {
                       type: 'Dogs',
                       filteredList: filteredDogQuestionList,
                     ),
+                  );
+                },
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Text(
+                      "Dogs",
+                      style: TextStyle(
+                        fontSize: 60,
+                        color: Colors.blue,
+                        fontFamily:
+                            Theme.of(context).textTheme.bodyMedium?.fontFamily,
+                      ),
                     child: ButtonContent(
                       type: "Dog",
                       colors: Colors.blue,
@@ -95,6 +112,8 @@ class ReminderScreen extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
                       side: BorderSide(width: 1, color: Colors.grey),
+                      fontFamily:
+                            Theme.of(context).textTheme.bodyMedium?.fontFamily,
                     ),
                   ),
                 ),
@@ -121,6 +140,8 @@ class ReminderScreen extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
                       side: BorderSide(width: 1, color: Colors.grey),
+                      fontFamily:
+                            Theme.of(context).textTheme.bodyMedium?.fontFamily,
                     ),
                   ),
                 ),
@@ -147,6 +168,9 @@ class ReminderScreen extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
                       side: BorderSide(width: 1, color: Colors.grey),
+                      fontFamily:
+                            Theme.of(context).textTheme.bodyMedium?.fontFamily,
+
                     ),
                   ),
                 ),
@@ -172,7 +196,7 @@ class ReminderScreen extends StatelessWidget {
                     ),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
-                      side: BorderSide(width: 1, color: Colors.grey),
+                      side: BorderSide(width: 1, color: Colors.grey),                 
                     ),
                   ),
                 ),

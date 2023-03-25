@@ -23,6 +23,11 @@ class CategoryScreen extends StatelessWidget {
         backgroundColor: AppColor.whiteColor,
         toolbarHeight: MediaQuery.of(context).viewPadding.top,
         elevation: 0,
+        title: Text(
+          "Petpal",
+          style: Theme.of(context).textTheme.headlineMedium,
+        ),
+        centerTitle: true,
         // toolbarHeight: ,
       ),
       body: SafeArea(
@@ -51,7 +56,7 @@ class CategoryScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 13,
               ),
               Container(
                 width: deviceWidth,
@@ -78,7 +83,7 @@ class CategoryScreen extends StatelessWidget {
                           margin: const EdgeInsets.only(bottom: 5),
                           child: Text(
                             'Body Language',
-                            style: Theme.of(context).textTheme.headlineSmall,
+                            style: Theme.of(context).textTheme.bodyMedium,
                             textAlign: TextAlign.left,
                           ),
                         ),
@@ -89,7 +94,7 @@ class CategoryScreen extends StatelessWidget {
                           margin: const EdgeInsets.only(bottom: 5),
                           child: Text(
                             'Speak your pets language!',
-                            style: Theme.of(context).textTheme.bodyLarge,
+                            style: Theme.of(context).textTheme.bodySmall,
                             textAlign: TextAlign.left,
                           ),
                         ),
@@ -128,7 +133,7 @@ class CategoryScreen extends StatelessWidget {
                           margin: const EdgeInsets.only(bottom: 5),
                           child: Text(
                             'Training Guide',
-                            style: Theme.of(context).textTheme.headlineSmall,
+                            style: Theme.of(context).textTheme.bodyMedium,
                             textAlign: TextAlign.left,
                           ),
                         ),
@@ -139,7 +144,7 @@ class CategoryScreen extends StatelessWidget {
                           margin: const EdgeInsets.only(bottom: 5),
                           child: Text(
                             'Train your pet!',
-                            style: Theme.of(context).textTheme.bodyLarge,
+                            style: Theme.of(context).textTheme.bodySmall,
                             textAlign: TextAlign.left,
                           ),
                         ),

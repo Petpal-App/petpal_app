@@ -39,9 +39,7 @@ class _GuideScreenState extends State<GuideScreen> {
         elevation: 0,
         title: Text(
           'Training Guide - ${widget.category}',
-          style: TextStyle(
-            color: AppColor.blackColor,
-          ),
+          style: Theme.of(context).textTheme.titleMedium,
         ),
       ),
       body: Center(
@@ -57,7 +55,11 @@ class _GuideScreenState extends State<GuideScreen> {
             ),
             Text(
               widget.trainingGuideList.guides[widget.index].trainingGuideText,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                fontFamily: Theme.of(context).textTheme.bodyMedium?.fontFamily,
+              ),
             ),
             SizedBox(height: widget.deviceHeight_half * 0.13),
             Column(
@@ -86,6 +88,10 @@ class _GuideScreenState extends State<GuideScreen> {
                   },
                   child: Text(
                       widget.trainingGuideList.guides[widget.index].options[0]),
+                      style: TextStyle(
+                  fontFamily:
+                      Theme.of(context).textTheme.bodyMedium?.fontFamily,
+                  ),
                 ),
                 SizedBox(
                   height: widget.deviceHeight_half * 0.05,
@@ -114,6 +120,10 @@ class _GuideScreenState extends State<GuideScreen> {
                   },
                   child: Text(
                       widget.trainingGuideList.guides[widget.index].options[1]),
+                      style: TextStyle(
+                          fontFamily:
+                      Theme.of(context).textTheme.bodyMedium?.fontFamily,
+                ),
                 ),
                 SizedBox(
                   height: widget.deviceHeight_half * 0.05,
@@ -142,6 +152,10 @@ class _GuideScreenState extends State<GuideScreen> {
                   },
                   child: Text(
                       widget.trainingGuideList.guides[widget.index].options[2]),
+                      style: TextStyle(
+                  fontFamily:
+                      Theme.of(context).textTheme.bodyMedium?.fontFamily,
+                ),
                 ),
               ],
             ),

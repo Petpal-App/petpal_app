@@ -72,6 +72,7 @@ class _QuizScreenState extends State<QuizScreen> {
           'Quiz - ${widget.category}',
           style: TextStyle(
             color: AppColor.blackColor,
+            fontFamily: Theme.of(context).textTheme.bodyMedium?.fontFamily,
           ),
         ),
       ),
@@ -87,7 +88,11 @@ class _QuizScreenState extends State<QuizScreen> {
             ),
             Text(
               widget.questionList.questions[widget.index].questionText,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                fontFamily: Theme.of(context).textTheme.bodyMedium?.fontFamily,
+              ),
             ),
             SizedBox(height: widget.deviceHeight_half * 0.13),
             Column(
@@ -102,6 +107,10 @@ class _QuizScreenState extends State<QuizScreen> {
                   onPressed: () => _checkAnswer(0),
                   child: Text(
                       widget.questionList.questions[widget.index].options[0]),
+                      style: TextStyle(
+                  fontFamily:
+                      Theme.of(context).textTheme.bodyMedium?.fontFamily,
+                ),
                 ),
                 SizedBox(
                   height: widget.deviceHeight_half * 0.05,
@@ -116,6 +125,10 @@ class _QuizScreenState extends State<QuizScreen> {
                   onPressed: () => _checkAnswer(1),
                   child: Text(
                       widget.questionList.questions[widget.index].options[1]),
+                      style: TextStyle(
+                  fontFamily:
+                      Theme.of(context).textTheme.bodyMedium?.fontFamily,
+                ),
                 ),
                 SizedBox(
                   height: widget.deviceHeight_half * 0.05,
@@ -130,6 +143,10 @@ class _QuizScreenState extends State<QuizScreen> {
                   onPressed: () => _checkAnswer(2),
                   child: Text(
                       widget.questionList.questions[widget.index].options[2]),
+                      style: TextStyle(
+                  fontFamily:
+                      Theme.of(context).textTheme.bodyMedium?.fontFamily,
+                ),
                 ),
               ],
             ),
@@ -141,7 +158,13 @@ class _QuizScreenState extends State<QuizScreen> {
               onPressed: _nextQuestion,
               child: Column(children: [
                 Icon(Icons.arrow_forward),
-                Text(_isCorrect ? "Correct" : "Wrong")
+                Text(
+                  _isCorrect ? "Correct" : "Wrong",
+                  style: TextStyle(
+                    fontFamily:
+                        Theme.of(context).textTheme.bodyMedium?.fontFamily,
+                  ),
+                )
               ]),
             )
           : null,
