@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../screens/quiz_screen.dart';
 import '../models/question.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class QuestionCard extends StatelessWidget {
   final double deviceHeight_half;
@@ -15,15 +16,22 @@ class QuestionCard extends StatelessWidget {
     required this.cardName,
   });
 
-  //위젯 하나로 묶었습니다.
+  void getQuestions(firestore) async {
+    QuerySnapshot querySnapshot = await firestore.collection('questions').get();
+    List<DocumentSnapshot> documents = querySnapshot.docs;
+    for (DocumentSnapshot document in documents) {
+      print(document.data());
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+    getQuestions(firestore);
+
     return Container(
       width: (deviceWidth_half - 12 * 2 - 4) / 2,
-      height:
-          ((deviceHeight_half / 2) - 12 - (10 * 2) - 45 - 4 - 4) / 2 -
-              2,
+      height: ((deviceHeight_half / 2) - 12 - (10 * 2) - 45 - 4 - 4) / 2 - 2,
       //위 두 부분은 하드코딩했어요. 나중에 위젯당 2픽셀의 패딩을 기본으로 가지는거 처리하면 돼요.
       decoration: BoxDecoration(
         color: Colors.white,
