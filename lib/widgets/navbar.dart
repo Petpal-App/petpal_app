@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+
 import '../screens/reminder_screen.dart';
 import '../screens/category_screen.dart';
+import '../main.dart';
 
 class NavBar extends StatelessWidget {
   final int currentIndex;
@@ -44,6 +46,7 @@ class NavBar extends StatelessWidget {
         ],
         currentIndex: currentIndex,
         onTap: (index) => _onItemTapped(context, index),
+        selectedItemColor: AppColor.greenTambourine,
       ),
     );
   }

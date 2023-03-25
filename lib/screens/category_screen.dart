@@ -17,10 +17,10 @@ class CategoryScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarColor: Colors.white,
+          statusBarColor: AppColor.whiteColor,
           statusBarIconBrightness: Brightness.dark,
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: AppColor.whiteColor,
         toolbarHeight: MediaQuery.of(context).viewPadding.top,
         elevation: 0,
         // toolbarHeight: ,
@@ -37,13 +37,7 @@ class CategoryScreen extends StatelessWidget {
                 width: deviceWidth,
                 child: Text(
                   'Home',
-                  style: TextStyle(
-                    fontStyle: FontStyle.italic,
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                    fontFamily:
-                        Theme.of(context).textTheme.headlineLarge?.fontFamily,
-                  ),
+                  style: Theme.of(context).textTheme.headlineLarge,
                   textAlign: TextAlign.left,
                 ),
               ),
@@ -75,14 +69,7 @@ class CategoryScreen extends StatelessWidget {
                           margin: const EdgeInsets.only(bottom: 5),
                           child: Text(
                             'Body Language',
-                            style: TextStyle(
-                              fontSize: 23,
-                              fontWeight: FontWeight.w500,
-                              fontFamily: Theme.of(context)
-                                  .textTheme
-                                  .headlineLarge
-                                  ?.fontFamily,
-                            ),
+                            style: Theme.of(context).textTheme.headlineSmall,
                             textAlign: TextAlign.left,
                           ),
                         ),
@@ -93,13 +80,7 @@ class CategoryScreen extends StatelessWidget {
                           margin: const EdgeInsets.only(bottom: 5),
                           child: Text(
                             'Speak your pets language!',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontFamily: Theme.of(context)
-                                  .textTheme
-                                  .headlineLarge
-                                  ?.fontFamily,
-                            ),
+                            style: Theme.of(context).textTheme.bodyLarge,
                             textAlign: TextAlign.left,
                           ),
                         ),
@@ -138,14 +119,7 @@ class CategoryScreen extends StatelessWidget {
                           margin: const EdgeInsets.only(bottom: 5),
                           child: Text(
                             'Training Guide',
-                            style: TextStyle(
-                              fontSize: 23,
-                              fontWeight: FontWeight.w500,
-                              fontFamily: Theme.of(context)
-                                  .textTheme
-                                  .headlineLarge
-                                  ?.fontFamily,
-                            ),
+                            style: Theme.of(context).textTheme.headlineSmall,
                             textAlign: TextAlign.left,
                           ),
                         ),
@@ -156,13 +130,7 @@ class CategoryScreen extends StatelessWidget {
                           margin: const EdgeInsets.only(bottom: 5),
                           child: Text(
                             'Train your pet!',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontFamily: Theme.of(context)
-                                  .textTheme
-                                  .headlineLarge
-                                  ?.fontFamily,
-                            ),
+                            style: Theme.of(context).textTheme.bodyLarge,
                             textAlign: TextAlign.left,
                           ),
                         ),
