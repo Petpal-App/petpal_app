@@ -87,10 +87,11 @@ class _GuideScreenState extends State<GuideScreen> {
                     );
                   },
                   child: Text(
-                      widget.trainingGuideList.guides[widget.index].options[0]),
-                      style: TextStyle(
-                  fontFamily:
-                      Theme.of(context).textTheme.bodyMedium?.fontFamily,
+                    widget.trainingGuideList.guides[widget.index].options[0],
+                    style: TextStyle(
+                      fontFamily:
+                          Theme.of(context).textTheme.bodyMedium?.fontFamily,
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -119,11 +120,12 @@ class _GuideScreenState extends State<GuideScreen> {
                     );
                   },
                   child: Text(
-                      widget.trainingGuideList.guides[widget.index].options[1]),
-                      style: TextStyle(
-                          fontFamily:
-                      Theme.of(context).textTheme.bodyMedium?.fontFamily,
-                ),
+                    widget.trainingGuideList.guides[widget.index].options[1],
+                    style: TextStyle(
+                      fontFamily:
+                          Theme.of(context).textTheme.bodyMedium?.fontFamily,
+                    ),
+                  ),
                 ),
                 SizedBox(
                   height: widget.deviceHeight_half * 0.05,
@@ -151,11 +153,12 @@ class _GuideScreenState extends State<GuideScreen> {
                     );
                   },
                   child: Text(
-                      widget.trainingGuideList.guides[widget.index].options[2]),
-                      style: TextStyle(
-                  fontFamily:
-                      Theme.of(context).textTheme.bodyMedium?.fontFamily,
-                ),
+                    widget.trainingGuideList.guides[widget.index].options[2],
+                    style: TextStyle(
+                      fontFamily:
+                          Theme.of(context).textTheme.bodyMedium?.fontFamily,
+                    ),
+                  ),
                 ),
               ],
             ),

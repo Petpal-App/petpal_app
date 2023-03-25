@@ -17,7 +17,11 @@ class ButtonContent extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 20.0),
         child: Text(
           type,
-          style: TextStyle(fontSize: 60, color: colors),
+          style: TextStyle(
+            fontSize: 60,
+            color: colors,
+            fontFamily: Theme.of(context).textTheme.bodyMedium?.fontFamily,
+          ),
         ),
       ),
     );
