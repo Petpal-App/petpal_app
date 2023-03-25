@@ -106,11 +106,12 @@ class _QuizScreenState extends State<QuizScreen> {
                   ),
                   onPressed: () => _checkAnswer(0),
                   child: Text(
-                      widget.questionList.questions[widget.index].options[0]),
-                      style: TextStyle(
-                  fontFamily:
-                      Theme.of(context).textTheme.bodyMedium?.fontFamily,
-                ),
+                    widget.questionList.questions[widget.index].options[0],
+                    style: TextStyle(
+                      fontFamily:
+                          Theme.of(context).textTheme.bodyMedium?.fontFamily,
+                    ),
+                  ),
                 ),
                 SizedBox(
                   height: widget.deviceHeight_half * 0.05,
@@ -124,11 +125,12 @@ class _QuizScreenState extends State<QuizScreen> {
                   ),
                   onPressed: () => _checkAnswer(1),
                   child: Text(
-                      widget.questionList.questions[widget.index].options[1]),
-                      style: TextStyle(
-                  fontFamily:
-                      Theme.of(context).textTheme.bodyMedium?.fontFamily,
-                ),
+                    widget.questionList.questions[widget.index].options[1],
+                    style: TextStyle(
+                      fontFamily:
+                          Theme.of(context).textTheme.bodyMedium?.fontFamily,
+                    ),
+                  ),
                 ),
                 SizedBox(
                   height: widget.deviceHeight_half * 0.05,
@@ -142,11 +144,12 @@ class _QuizScreenState extends State<QuizScreen> {
                   ),
                   onPressed: () => _checkAnswer(2),
                   child: Text(
-                      widget.questionList.questions[widget.index].options[2]),
-                      style: TextStyle(
-                  fontFamily:
-                      Theme.of(context).textTheme.bodyMedium?.fontFamily,
-                ),
+                    widget.questionList.questions[widget.index].options[2],
+                    style: TextStyle(
+                      fontFamily:
+                          Theme.of(context).textTheme.bodyMedium?.fontFamily,
+                    ),
+                  ),
                 ),
               ],
             ),
