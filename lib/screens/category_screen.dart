@@ -32,13 +32,22 @@ class CategoryScreen extends StatelessWidget {
               Container(
                 padding: EdgeInsets.symmetric(
                   vertical: 10,
-                  horizontal: 30,
+                  horizontal: 10,
                 ),
                 width: deviceWidth,
-                child: Text(
-                  'Home',
-                  style: Theme.of(context).textTheme.headlineLarge,
-                  textAlign: TextAlign.left,
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.home,
+                      color: AppColor.greenTambourine,
+                      size: 50,
+                    ),
+                    Text(
+                      'Home',
+                      style: Theme.of(context).textTheme.headlineLarge,
+                      textAlign: TextAlign.left,
+                    ),
+                  ],
                 ),
               ),
               SizedBox(
