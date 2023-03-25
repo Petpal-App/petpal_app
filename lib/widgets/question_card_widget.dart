@@ -50,12 +50,7 @@ class QuestionCard extends StatelessWidget {
               //padding: EdgeInsets.symmetric(horizontal: 20.0),
               child: Text(
                 cardName,
-                style: TextStyle(
-                  fontSize: 25,
-                  color: Colors.black,
-                  fontFamily:
-                      Theme.of(context).textTheme.headlineLarge?.fontFamily,
-                ),
+                style: Theme.of(context).textTheme.bodyLarge,
               ),
             ),
           ),

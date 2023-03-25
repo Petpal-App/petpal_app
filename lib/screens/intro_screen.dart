@@ -17,7 +17,11 @@ class IntroScreen extends StatelessWidget {
               SizedBox(height: 50),
               Text(
                 'Tap to Start',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: Theme.of(context).textTheme.bodyLarge?.fontFamily,
+                ),
               ),
             ],
           ),

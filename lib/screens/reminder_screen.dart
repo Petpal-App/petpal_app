@@ -29,7 +29,12 @@ class ReminderScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Reminder Categories'),
+        title: Text(
+          'Reminder Categories',
+          style: TextStyle(
+            fontFamily: Theme.of(context).textTheme.bodyMedium?.fontFamily,
+          ),
+        ),
       ),
       body: Center(
         child: Column(
@@ -55,7 +60,12 @@ class ReminderScreen extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 20.0),
                     child: Text(
                       "Dogs",
-                      style: TextStyle(fontSize: 60, color: Colors.blue),
+                      style: TextStyle(
+                        fontSize: 60,
+                        color: Colors.blue,
+                        fontFamily:
+                            Theme.of(context).textTheme.bodyMedium?.fontFamily,
+                      ),
                     ),
                   ),
                 ),
@@ -85,7 +95,12 @@ class ReminderScreen extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 20.0),
                     child: Text(
                       "Cats",
-                      style: TextStyle(fontSize: 60, color: Colors.lightGreen),
+                      style: TextStyle(
+                        fontSize: 60,
+                        color: Colors.lightGreen,
+                        fontFamily:
+                            Theme.of(context).textTheme.bodyMedium?.fontFamily,
+                      ),
                     ),
                   ),
                 ),
@@ -115,7 +130,12 @@ class ReminderScreen extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 20.0),
                     child: Text(
                       "Birds",
-                      style: TextStyle(fontSize: 60, color: Colors.orange),
+                      style: TextStyle(
+                        fontSize: 60,
+                        color: Colors.orange,
+                        fontFamily:
+                            Theme.of(context).textTheme.bodyMedium?.fontFamily,
+                      ),
                     ),
                   ),
                 ),
@@ -145,13 +165,21 @@ class ReminderScreen extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 20.0),
                     child: Text(
                       "Fish",
-                      style: TextStyle(fontSize: 60, color: Colors.orange),
+                      style: TextStyle(
+                        fontSize: 60,
+                        color: Colors.orange,
+                        fontFamily:
+                            Theme.of(context).textTheme.bodyMedium?.fontFamily,
+                      ),
                     ),
                   ),
                 ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
-                  side: BorderSide(width: 1, color: Colors.grey),
+                  side: BorderSide(
+                    width: 1,
+                    color: Colors.grey,
+                  ),
                 ),
               ),
             ),

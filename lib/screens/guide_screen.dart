@@ -19,7 +19,10 @@ class GuideScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Training Guide - $category'),
+        title: Text(
+          'Training Guide - $category',
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
       ),
       body: Center(
         child: Column(
@@ -30,7 +33,11 @@ class GuideScreen extends StatelessWidget {
             SizedBox(height: 20),
             Text(
               trainingGuideList.guides[index].trainingGuideText,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                fontFamily: Theme.of(context).textTheme.bodyMedium?.fontFamily,
+              ),
             ),
             SizedBox(height: 20),
             ElevatedButton(
@@ -46,7 +53,13 @@ class GuideScreen extends StatelessWidget {
                           : (context) => CategoryScreen()),
                 );
               },
-              child: Text(trainingGuideList.guides[index].options[0]),
+              child: Text(
+                trainingGuideList.guides[index].options[0],
+                style: TextStyle(
+                  fontFamily:
+                      Theme.of(context).textTheme.bodyMedium?.fontFamily,
+                ),
+              ),
             ),
             ElevatedButton(
               onPressed: () {
@@ -61,7 +74,13 @@ class GuideScreen extends StatelessWidget {
                           : (context) => CategoryScreen()),
                 );
               },
-              child: Text(trainingGuideList.guides[index].options[1]),
+              child: Text(
+                trainingGuideList.guides[index].options[1],
+                style: TextStyle(
+                  fontFamily:
+                      Theme.of(context).textTheme.bodyMedium?.fontFamily,
+                ),
+              ),
             ),
             ElevatedButton(
               onPressed: () {
@@ -76,7 +95,13 @@ class GuideScreen extends StatelessWidget {
                           : (context) => CategoryScreen()),
                 );
               },
-              child: Text(trainingGuideList.guides[index].options[2]),
+              child: Text(
+                trainingGuideList.guides[index].options[2],
+                style: TextStyle(
+                  fontFamily:
+                      Theme.of(context).textTheme.bodyMedium?.fontFamily,
+                ),
+              ),
             ),
           ],
         ),
