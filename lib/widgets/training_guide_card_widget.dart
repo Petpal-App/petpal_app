@@ -5,14 +5,14 @@ import '../screens/guide_screen.dart';
 import '../models/training_guide.dart';
 
 class TrainingGuideCard extends StatelessWidget {
-  final double deviceHeight;
-  final double deviceWidth;
+  final double deviceHeight_half;
+  final double deviceWidth_half;
   final TrainingGuideList trainingGuideList;
   final String cardName;
 
   TrainingGuideCard({
-    required this.deviceHeight,
-    required this.deviceWidth,
+    required this.deviceHeight_half,
+    required this.deviceWidth_half,
     required this.trainingGuideList,
     required this.cardName,
   });
@@ -22,8 +22,8 @@ class TrainingGuideCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: (deviceWidth - 12 * 2 - 4) / 2, //deviceWidth - 12 * 2,
-      height: ((deviceHeight / 2) - 12 - (10 * 2) - 45 - 4 - 4) / 2 - 2,
+      width: (deviceWidth_half - 12 * 2 - 4) / 2, //deviceWidth_half - 12 * 2,
+      height: ((deviceHeight_half / 2) - 12 - (10 * 2) - 45 - 4 - 4) / 2 - 2,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -40,6 +40,7 @@ class TrainingGuideCard extends StatelessWidget {
                   category: cardName,
                   trainingGuideList: trainingGuideList,
                   index: 0,
+                  deviceHeight_half: deviceHeight_half,
                 ),
               ),
             );
