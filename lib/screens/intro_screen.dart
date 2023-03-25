@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../main.dart';
 import 'category_screen.dart';
 
 class IntroScreen extends StatelessWidget {
@@ -11,10 +13,16 @@ class IntroScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              FlutterLogo(
-                size: 150,
+              Image.asset('assets/logos/petpal_logo.png'),
+              Text(
+                'Petpal',
+                style: TextStyle(
+                    color: AppColor.greenTambourine,
+                    fontFamily: 'Montserrat',
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 50),
+              SizedBox(height: 20),
               Text(
                 'Tap to Start',
                 style: TextStyle(

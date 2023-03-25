@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:petpal_app/models/question.dart';
+import 'package:flutter/services.dart';
+
+import '../main.dart';
+import '../models/question.dart';
 import '../widgets/navbar.dart';
 import 'reminder_content_screen.dart';
 import '../datas/question_data.dart';
+import '../widgets/button_content.dart';
 
 class ReminderScreen extends StatelessWidget {
   static final List<Question> dogQuestions = dogQuestionList.questions
@@ -17,6 +21,7 @@ class ReminderScreen extends StatelessWidget {
   static final List<Question> fishQuestions = catQuestionList.questions
       .where((element) => element.status == 1)
       .toList();
+
   final QuestionList filteredDogQuestionList =
       new QuestionList(questions: dogQuestions, count: dogQuestions.length);
   final QuestionList filteredCatQuestionList =
@@ -25,32 +30,66 @@ class ReminderScreen extends StatelessWidget {
       new QuestionList(questions: birdQuestions, count: birdQuestions.length);
   final QuestionList filteredFishQuestionList =
       new QuestionList(questions: fishQuestions, count: fishQuestions.length);
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Reminder Categories',
-          style: TextStyle(
-            fontFamily: Theme.of(context).textTheme.bodyMedium?.fontFamily,
-          ),
+
+  void moveToReminderScreen({
+    required BuildContext context,
+    required String type,
+    required QuestionList filteredList,
+  }) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ReminderContentScreen(
+          category: type,
+          questionList: filteredList,
+          index: 0,
         ),
       ),
-      body: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Expanded(
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ReminderContentScreen(
-                        category: 'Dogs',
-                        questionList: filteredDogQuestionList,
-                        index: 0,
-                      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final deviceWidth = MediaQuery.of(context).size.width;
+
+    return Scaffold(
+      appBar: AppBar(
+
+        systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarColor: AppColor.whiteColor,
+          statusBarIconBrightness: Brightness.dark,
+        ),
+        backgroundColor: AppColor.whiteColor,
+        foregroundColor: AppColor.blackColor,
+        toolbarHeight: MediaQuery.of(context).viewPadding.top,
+        elevation: 0,
+        title: Text('Reminder Categories', style: TextStyle(
+            fontFamily: Theme.of(context).textTheme.bodyMedium?.fontFamily,
+          ),),
+      ),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(40),
+                ),
+                height: deviceWidth * 0.38,
+                width: deviceWidth * 0.7,
+                margin: EdgeInsets.symmetric(vertical: deviceWidth * 0.025),
+                child: Card(
+                  elevation: 5,
+                  child: ElevatedButton(
+                    onPressed: () => moveToReminderScreen(
+                      context: context,
+                      type: 'Dogs',
+                      filteredList: filteredDogQuestionList,
                     ),
                   );
                 },
@@ -66,124 +105,104 @@ class ReminderScreen extends StatelessWidget {
                         fontFamily:
                             Theme.of(context).textTheme.bodyMedium?.fontFamily,
                       ),
+                    child: ButtonContent(
+                      type: "Dog",
+                      colors: Colors.blue,
                     ),
-                  ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  side: BorderSide(width: 1, color: Colors.grey),
-                ),
-              ),
-            ),
-            Expanded(
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ReminderContentScreen(
-                        category: 'Cats',
-                        questionList: filteredCatQuestionList,
-                        index: 0,
-                      ),
-                    ),
-                  );
-                },
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Text(
-                      "Cats",
-                      style: TextStyle(
-                        fontSize: 60,
-                        color: Colors.lightGreen,
-                        fontFamily:
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      side: BorderSide(width: 1, color: Colors.grey),
+                      fontFamily:
                             Theme.of(context).textTheme.bodyMedium?.fontFamily,
-                      ),
                     ),
                   ),
                 ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  side: BorderSide(width: 1, color: Colors.grey),
-                ),
               ),
-            ),
-            Expanded(
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ReminderContentScreen(
-                        category: 'Birds',
-                        questionList: filteredBirdQuestionList,
-                        index: 0,
-                      ),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(40),
+                ),
+                height: deviceWidth * 0.38,
+                width: deviceWidth * 0.7,
+                margin: EdgeInsets.symmetric(vertical: deviceWidth * 0.025),
+                child: Card(
+                  elevation: 5,
+                  child: ElevatedButton(
+                    onPressed: () => moveToReminderScreen(
+                      context: context,
+                      type: "Cat",
+                      filteredList: filteredCatQuestionList,
                     ),
-                  );
-                },
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Text(
-                      "Birds",
-                      style: TextStyle(
-                        fontSize: 60,
-                        color: Colors.orange,
-                        fontFamily:
+                    child: ButtonContent(
+                      type: "Cat",
+                      colors: Colors.lightGreen,
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      side: BorderSide(width: 1, color: Colors.grey),
+                      fontFamily:
                             Theme.of(context).textTheme.bodyMedium?.fontFamily,
-                      ),
                     ),
                   ),
                 ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  side: BorderSide(width: 1, color: Colors.grey),
-                ),
               ),
-            ),
-            Expanded(
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ReminderContentScreen(
-                        category: 'Fish',
-                        questionList: filteredFishQuestionList,
-                        index: 0,
-                      ),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(40),
+                ),
+                height: deviceWidth * 0.38,
+                width: deviceWidth * 0.7,
+                margin: EdgeInsets.symmetric(vertical: deviceWidth * 0.025),
+                child: Card(
+                  elevation: 5,
+                  child: ElevatedButton(
+                    onPressed: () => moveToReminderScreen(
+                      context: context,
+                      type: 'Bird',
+                      filteredList: filteredBirdQuestionList,
                     ),
-                  );
-                },
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Text(
-                      "Fish",
-                      style: TextStyle(
-                        fontSize: 60,
-                        color: Colors.orange,
-                        fontFamily:
+                    child: ButtonContent(
+                      type: "Bird",
+                      colors: Colors.orange,
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      side: BorderSide(width: 1, color: Colors.grey),
+                      fontFamily:
                             Theme.of(context).textTheme.bodyMedium?.fontFamily,
-                      ),
+
                     ),
                   ),
                 ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  side: BorderSide(
-                    width: 1,
-                    color: Colors.grey,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(40),
+                ),
+                height: deviceWidth * 0.38,
+                width: deviceWidth * 0.7,
+                margin: EdgeInsets.symmetric(vertical: deviceWidth * 0.025),
+                child: Card(
+                  elevation: 5,
+                  child: ElevatedButton(
+                    onPressed: () => moveToReminderScreen(
+                      context: context,
+                      type: 'Fish',
+                      filteredList: filteredFishQuestionList,
+                    ),
+                    child: ButtonContent(
+                      type: "Fish",
+                      colors: Colors.purple,
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      side: BorderSide(width: 1, color: Colors.grey),                 
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: NavBar(

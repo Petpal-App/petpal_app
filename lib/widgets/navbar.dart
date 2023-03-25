@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+
 import '../screens/reminder_screen.dart';
 import '../screens/category_screen.dart';
+import '../main.dart';
 
 class NavBar extends StatelessWidget {
   final int currentIndex;
@@ -31,19 +33,36 @@ class NavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 56,
-      child: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.category),
-            label: 'Category',
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              spreadRadius: 2,
+              blurRadius: 6,
+              offset: Offset(0, 3),
+            ),
+          ],
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(20),
+          child: BottomNavigationBar(
+            items: [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.category),
+                label: 'Category',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.history),
+                label: 'Reminder',
+              ),
+            ],
+            currentIndex: currentIndex,
+            onTap: (index) => _onItemTapped(context, index),
+            selectedItemColor: AppColor.greenTambourine,
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.history),
-            label: 'Reminder',
-          ),
-        ],
-        currentIndex: currentIndex,
-        onTap: (index) => _onItemTapped(context, index),
+        ),
       ),
     );
   }

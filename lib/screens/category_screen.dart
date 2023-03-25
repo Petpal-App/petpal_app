@@ -17,10 +17,10 @@ class CategoryScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarColor: Colors.white,
+          statusBarColor: AppColor.whiteColor,
           statusBarIconBrightness: Brightness.dark,
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: AppColor.whiteColor,
         toolbarHeight: MediaQuery.of(context).viewPadding.top,
         elevation: 0,
         title: Text(
@@ -37,13 +37,22 @@ class CategoryScreen extends StatelessWidget {
               Container(
                 padding: EdgeInsets.symmetric(
                   vertical: 10,
-                  horizontal: 30,
+                  horizontal: 10,
                 ),
                 width: deviceWidth,
-                child: Text(
-                  'Home',
-                  style: Theme.of(context).textTheme.headlineLarge,
-                  textAlign: TextAlign.left,
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.home,
+                      color: AppColor.greenTambourine,
+                      size: 50,
+                    ),
+                    Text(
+                      'Home',
+                      style: Theme.of(context).textTheme.headlineLarge,
+                      textAlign: TextAlign.left,
+                    ),
+                  ],
                 ),
               ),
               SizedBox(
