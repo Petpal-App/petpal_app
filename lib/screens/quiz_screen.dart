@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../main.dart';
 import '../models/question.dart';
@@ -27,14 +28,27 @@ class _QuizScreenState extends State<QuizScreen> {
   bool _showModal = false;
   bool _isCorrect = false;
 
-  void _checkAnswer(int selectedIndex) {
-    print(selectedIndex);
+  void _checkAnswer(int selectedIndex) async {
+    final prefs = await SharedPreferences.getInstance();
+    final id = widget.questionList.questions[widget.index].id;
     if (selectedIndex == 0) {
       _isCorrect = true;
-      //문제 기록
+      List<String>? wrongAnswers = prefs.getStringList('wrong_answers');
+      if (wrongAnswers != null && wrongAnswers.contains(id.toString())) {
+        wrongAnswers.remove(id.toString());
+        await prefs.setStringList('wrong_answers', wrongAnswers);
+      }
     } else {
       _isCorrect = false;
-      //문제 기록
+      List<String>? wrongAnswers = prefs.getStringList('wrong_answers');
+      if (wrongAnswers == null) {
+        wrongAnswers = [];
+        wrongAnswers.add(id.toString());
+      } else if (wrongAnswers.contains(id)) {
+        wrongAnswers.add(id.toString());
+      }
+      await prefs.setStringList('wrong_answers', wrongAnswers);
+      print(await prefs.getStringList('wrong_answers'));
     }
     setState(() {
       _showModal = true;

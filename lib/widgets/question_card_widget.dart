@@ -41,6 +41,7 @@ class QuestionCard extends StatelessWidget {
             options: List<String>.from(doc['options']),
             type: doc['type'],
             videoId: doc['videoId'],
+            id: doc['id'],
           );
         }).toList();
 
