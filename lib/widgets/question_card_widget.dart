@@ -16,19 +16,8 @@ class QuestionCard extends StatelessWidget {
     required this.cardName,
   });
 
-  void getQuestions(firestore) async {
-    QuerySnapshot querySnapshot = await firestore.collection('questions').get();
-    List<DocumentSnapshot> documents = querySnapshot.docs;
-    for (DocumentSnapshot document in documents) {
-      print(document.data());
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
-    FirebaseFirestore firestore = FirebaseFirestore.instance;
-    getQuestions(firestore);
-
     return Container(
       width: (deviceWidth_half - 12 * 2 - 4) / 2,
       height: ((deviceHeight_half / 2) - 12 - (10 * 2) - 45 - 4 - 4) / 2 - 2,
