@@ -1,5 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:petpal_app/models/question_model.dart';
+import 'package:petpal_app/widgets/reminder_card.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../main.dart';
 import '../models/question.dart';
@@ -9,28 +13,6 @@ import '../datas/question_data.dart';
 import '../widgets/button_content.dart';
 
 class ReminderScreen extends StatelessWidget {
-  static final List<Question> dogQuestions = dogQuestionList.questions
-      .where((element) => element.status == 1)
-      .toList();
-  static final List<Question> catQuestions = catQuestionList.questions
-      .where((element) => element.status == 1)
-      .toList();
-  static final List<Question> birdQuestions = birdQuestionList.questions
-      .where((element) => element.status == 1)
-      .toList();
-  static final List<Question> fishQuestions = catQuestionList.questions
-      .where((element) => element.status == 1)
-      .toList();
-
-  final QuestionList filteredDogQuestionList =
-      new QuestionList(questions: dogQuestions, count: dogQuestions.length);
-  final QuestionList filteredCatQuestionList =
-      new QuestionList(questions: catQuestions, count: catQuestions.length);
-  final QuestionList filteredBirdQuestionList =
-      new QuestionList(questions: birdQuestions, count: birdQuestions.length);
-  final QuestionList filteredFishQuestionList =
-      new QuestionList(questions: fishQuestions, count: fishQuestions.length);
-
   void moveToReminderScreen({
     required BuildContext context,
     required String type,
@@ -51,7 +33,6 @@ class ReminderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final deviceWidth = MediaQuery.of(context).size.width;
-
     return Scaffold(
       appBar: AppBar(
         systemOverlayStyle: SystemUiOverlayStyle(
@@ -86,114 +67,46 @@ class ReminderScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(40),
-                    ),
-                    height: deviceWidth * 0.3,
-                    width: deviceWidth * 0.4,
-                    margin: EdgeInsets.symmetric(vertical: deviceWidth * 0.025),
-                    child: Card(
-                      elevation: 5,
-                      child: ElevatedButton(
-                        onPressed: () => moveToReminderScreen(
-                          context: context,
-                          type: 'Dogs',
-                          filteredList: filteredDogQuestionList,
-                        ),
-                        child: ButtonContent(
-                          type: "Dog",
-                          colors: Colors.blue,
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColor.greenTambourineTransparent,
-                          side: BorderSide(width: 1, color: Colors.grey),
-                        ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(40),
                       ),
-                    ),
-                  ),
+                      height: deviceWidth * 0.3,
+                      width: deviceWidth * 0.4,
+                      margin:
+                          EdgeInsets.symmetric(vertical: deviceWidth * 0.025),
+                      child: ReminderCard(type: "dog")),
                   Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(40),
-                    ),
-                    height: deviceWidth * 0.3,
-                    width: deviceWidth * 0.4,
-                    margin: EdgeInsets.symmetric(vertical: deviceWidth * 0.025),
-                    child: Card(
-                      elevation: 5,
-                      child: ElevatedButton(
-                        onPressed: () => moveToReminderScreen(
-                          context: context,
-                          type: "Cat",
-                          filteredList: filteredCatQuestionList,
-                        ),
-                        child: ButtonContent(
-                          type: "Cat",
-                          colors: Colors.lightGreen,
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColor.greenTambourineTransparent,
-                          side: BorderSide(width: 1, color: Colors.grey),
-                        ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(40),
                       ),
-                    ),
-                  ),
+                      height: deviceWidth * 0.3,
+                      width: deviceWidth * 0.4,
+                      margin:
+                          EdgeInsets.symmetric(vertical: deviceWidth * 0.025),
+                      child: ReminderCard(type: "cat")),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(40),
-                    ),
-                    height: deviceWidth * 0.3,
-                    width: deviceWidth * 0.4,
-                    margin: EdgeInsets.symmetric(vertical: deviceWidth * 0.025),
-                    child: Card(
-                      elevation: 5,
-                      child: ElevatedButton(
-                        onPressed: () => moveToReminderScreen(
-                          context: context,
-                          type: 'Bird',
-                          filteredList: filteredBirdQuestionList,
-                        ),
-                        child: ButtonContent(
-                          type: "Bird",
-                          colors: Colors.orange,
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColor.greenTambourineTransparent,
-                          // side: BorderSide(width: 1, color: Colors.grey),
-                        ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(40),
                       ),
-                    ),
-                  ),
+                      height: deviceWidth * 0.3,
+                      width: deviceWidth * 0.4,
+                      margin:
+                          EdgeInsets.symmetric(vertical: deviceWidth * 0.025),
+                      child: ReminderCard(type: "bird")),
                   Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(40),
-                    ),
-                    height: deviceWidth * 0.3,
-                    width: deviceWidth * 0.4,
-                    margin: EdgeInsets.symmetric(vertical: deviceWidth * 0.025),
-                    child: Card(
-                      elevation: 5,
-                      child: ElevatedButton(
-                        onPressed: () => moveToReminderScreen(
-                          context: context,
-                          type: 'Fish',
-                          filteredList: filteredFishQuestionList,
-                        ),
-                        child: ButtonContent(
-                          type: "Fish",
-                          colors: Colors.purple,
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColor.greenTambourineTransparent,
-                          side: BorderSide(width: 1, color: Colors.grey),
-                        ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(40),
                       ),
-                    ),
-                  ),
+                      height: deviceWidth * 0.3,
+                      width: deviceWidth * 0.4,
+                      margin:
+                          EdgeInsets.symmetric(vertical: deviceWidth * 0.025),
+                      child: ReminderCard(type: "fish")),
                 ],
               ),
             ],
