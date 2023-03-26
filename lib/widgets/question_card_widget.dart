@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:petpal_app/main.dart';
 import '../screens/quiz_screen.dart';
 import '../models/question.dart';
 
@@ -21,9 +22,7 @@ class QuestionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: (deviceWidth_half - 12 * 2 - 4) / 2,
-      height:
-          ((deviceHeight_half / 2) - 12 - (10 * 2) - 45 - 4 - 4) / 2 -
-              2,
+      height: ((deviceHeight_half / 2) - 12 - (10 * 2) - 45 - 4 - 4) / 2 - 2,
       //위 두 부분은 하드코딩했어요. 나중에 위젯당 2픽셀의 패딩을 기본으로 가지는거 처리하면 돼요.
       decoration: BoxDecoration(
         color: Colors.white,
@@ -56,7 +55,10 @@ class QuestionCard extends StatelessWidget {
               ),
             ),
           ),
-          style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: AppColor.greenTambourineTransparent,
+            foregroundColor: AppColor.yellowColor,
+          ),
         ),
       ),
     );
