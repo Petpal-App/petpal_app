@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:petpal_app/main.dart';
 
 import '../screens/guide_screen.dart';
 import '../models/training_guide.dart';
@@ -55,7 +56,10 @@ class TrainingGuideCard extends StatelessWidget {
               ),
             ),
           ),
-          style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: AppColor.greenTambourineTransparent,
+            foregroundColor: AppColor.yellowColor,
+          ),
         ),
       ),
     );

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'screens/intro_screen.dart';
@@ -6,12 +8,15 @@ void main() => runApp(MyApp());
 
 class AppColor {
   static const Color greenTambourine = Color.fromRGBO(12, 122, 61, 1);
+  static const Color greenTambourineTransparent =
+      Color.fromRGBO(12, 122, 61, 0.6);
   static const Color whiteColor = Colors.white;
   static const Color blackColor = Colors.black;
+  static const Color yellowColor = Color.fromRGBO(255, 224, 0, 1);
 }
 
 class MyApp extends StatelessWidget {
-  ThemeData appTheme = ThemeData(
+  final ThemeData appTheme = ThemeData(
     colorScheme: ColorScheme.fromSwatch().copyWith(
       primary: Color.fromRGBO(12, 122, 61, 1),
       secondary: Color.fromRGBO(12, 122, 61, 1),
@@ -53,7 +58,7 @@ class MyApp extends StatelessWidget {
             fontFamily: 'Montserrat',
             fontSize: 30,
             fontWeight: FontWeight.bold,
-            color: Colors.red,
+            color: AppColor.yellowColor,
           ),
           bodyMedium: TextStyle(
             fontFamily: 'Montserrat',
@@ -69,7 +74,8 @@ class MyApp extends StatelessWidget {
           ),
           bodyLarge: TextStyle(
             fontSize: 25,
-            color: Colors.black,
+            color: AppColor.yellowColor,
+            fontWeight: FontWeight.bold,
             fontFamily: 'Montserrat',
           ),
           displayMedium: TextStyle(
@@ -88,6 +94,12 @@ class MyApp extends StatelessWidget {
             fontSize: 20,
             fontWeight: FontWeight.w500,
             color: Colors.black,
+            fontFamily: 'Montserrat',
+          ),
+          labelMedium: TextStyle(
+            fontSize: 23,
+            fontWeight: FontWeight.w600,
+            color: AppColor.greenTambourine,
             fontFamily: 'Montserrat',
           ),
         ),

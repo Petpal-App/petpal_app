@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import '../main.dart';
 import '../widgets/navbar.dart';
+import '../widgets/video_player.dart';
 import '../widgets/mainpage_text_widget.dart';
 import '../widgets/mainpage_training_listview.dart';
 import '../widgets/mainpage_bodylanguage_listview.dart';
@@ -23,15 +24,17 @@ class CategoryScreen extends StatelessWidget {
         backgroundColor: AppColor.whiteColor,
         toolbarHeight: MediaQuery.of(context).viewPadding.top,
         elevation: 0,
-        title: Text(
-          "Petpal",
-          style: Theme.of(context).textTheme.headlineMedium,
+        title: Image.asset(
+          'assets/logos/petpal_rainbow.png',
+          width: deviceWidth * 0.7,
+          height: MediaQuery.of(context).viewPadding.top * 0.7,
         ),
         centerTitle: true,
         // toolbarHeight: ,
       ),
       body: SafeArea(
         child: SingleChildScrollView(
+          //추후 ListView builder로 바꾸면 video화면 부분 나타날 때마다 비디오 재생.
           child: Column(
             children: [
               Container(
@@ -57,23 +60,44 @@ class CategoryScreen extends StatelessWidget {
               ),
               SizedBox(
                 height: 13,
+                // child: Divider(
+                //   indent: 3,
+                //   endIndent: 3,
+                //   color: Colors
+                //       .grey, // You can also use Colors.grey.shadeXXX, where XXX is 100, 200, 300, etc.
+                //   thickness: 2.0, // Customize the thickness of the line
+                // ),
               ),
               Container(
                 width: deviceWidth,
-                height: 120,
-                padding: EdgeInsets.symmetric(
-                  vertical: 1,
-                  horizontal: 15,
+                height: 200,
+                child: VideoPlayerWidget(
+                  videoUrl: 'assets/videos/mainpage_video.mp4',
                 ),
-                child: MainPageDescriptionText(deviceWidth),
               ),
+              // Container(
+              //   width: deviceWidth,
+              //   height: 120,
+              //   padding: EdgeInsets.symmetric(
+              //     vertical: 1,
+              //     horizontal: 15,
+              //   ),
+              //   child: MainPageDescriptionText(deviceWidth),
+              // ),
               SizedBox(
                 height: 10,
+                // child: Divider(
+                //   indent: 3,
+                //   endIndent: 3,
+                //   color: Colors
+                //       .grey, // You can also use Colors.grey.shadeXXX, where XXX is 100, 200, 300, etc.
+                //   thickness: 2.0, // Customize the thickness of the line
+                // ),
               ),
               Column(
                 children: [
                   Container(
-                    height: (deviceHeight / 3.3),
+                    height: (deviceHeight / 3.6),
                     child: Column(
                       children: [
                         Container(
@@ -120,7 +144,14 @@ class CategoryScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 14,
+                    child: Divider(
+                      indent: 5,
+                      endIndent: 5,
+                      color: Colors
+                          .grey, // You can also use Colors.grey.shadeXXX, where XXX is 100, 200, 300, etc.
+                      thickness: 2.3, // Customize the thickness of the line
+                    ),
                   ),
                   Container(
                     height: (deviceHeight / 3.3),
