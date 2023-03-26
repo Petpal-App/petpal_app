@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:petpal_app/main.dart';
 
 import '../screens/guide_screen.dart';
 import '../models/training_guide.dart';
@@ -51,16 +52,14 @@ class TrainingGuideCard extends StatelessWidget {
               //padding: EdgeInsets.symmetric(horizontal: 20.0),
               child: Text(
                 cardName,
-                style: TextStyle(
-                  fontSize: 25,
-                  color: Colors.black,
-                  fontFamily:
-                      Theme.of(context).textTheme.headlineLarge?.fontFamily,
-                ),
+                style: Theme.of(context).textTheme.bodyLarge,
               ),
             ),
           ),
-          style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: AppColor.greenTambourineTransparent,
+            foregroundColor: AppColor.yellowColor,
+          ),
         ),
       ),
     );

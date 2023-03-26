@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:petpal_app/main.dart';
 import '../screens/quiz_screen.dart';
 import '../models/question.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -49,16 +50,14 @@ class QuestionCard extends StatelessWidget {
               //padding: EdgeInsets.symmetric(horizontal: 20.0),
               child: Text(
                 cardName,
-                style: TextStyle(
-                  fontSize: 25,
-                  color: Colors.black,
-                  fontFamily:
-                      Theme.of(context).textTheme.headlineLarge?.fontFamily,
-                ),
+                style: Theme.of(context).textTheme.bodyLarge,
               ),
             ),
           ),
-          style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: AppColor.greenTambourineTransparent,
+            foregroundColor: AppColor.yellowColor,
+          ),
         ),
       ),
     );

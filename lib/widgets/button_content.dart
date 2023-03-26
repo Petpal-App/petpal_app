@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:petpal_app/main.dart';
 
 class ButtonContent extends StatelessWidget {
   final String type;
@@ -15,9 +16,15 @@ class ButtonContent extends StatelessWidget {
       alignment: Alignment.centerLeft,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.0),
-        child: Text(
-          type,
-          style: TextStyle(fontSize: 60, color: colors),
+        child: FittedBox(
+          child: Text(
+            type,
+            style: TextStyle(
+              fontSize: 38,
+              color: AppColor.yellowColor,
+              fontFamily: Theme.of(context).textTheme.bodyMedium?.fontFamily,
+            ),
+          ),
         ),
       ),
     );
