@@ -25,10 +25,10 @@ class _ReminderContentScreenState extends State<ReminderContentScreen> {
     print(selectedIndex);
     if (selectedIndex == 0) {
       _isCorrect = true;
-      widget.questionList.questions[widget.index].status = 2;
+      //문제기록
     } else {
       _isCorrect = false;
-      widget.questionList.questions[widget.index].status = 1;
+      //문제기록
     }
     setState(() {
       _showModal = true;

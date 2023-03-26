@@ -9,27 +9,10 @@ import '../datas/question_data.dart';
 import '../widgets/button_content.dart';
 
 class ReminderScreen extends StatelessWidget {
-  static final List<Question> dogQuestions = dogQuestionList.questions
-      .where((element) => element.status == 1)
-      .toList();
-  static final List<Question> catQuestions = catQuestionList.questions
-      .where((element) => element.status == 1)
-      .toList();
-  static final List<Question> birdQuestions = birdQuestionList.questions
-      .where((element) => element.status == 1)
-      .toList();
-  static final List<Question> fishQuestions = catQuestionList.questions
-      .where((element) => element.status == 1)
-      .toList();
-
-  final QuestionList filteredDogQuestionList =
-      new QuestionList(questions: dogQuestions, count: dogQuestions.length);
-  final QuestionList filteredCatQuestionList =
-      new QuestionList(questions: catQuestions, count: catQuestions.length);
-  final QuestionList filteredBirdQuestionList =
-      new QuestionList(questions: birdQuestions, count: birdQuestions.length);
-  final QuestionList filteredFishQuestionList =
-      new QuestionList(questions: fishQuestions, count: fishQuestions.length);
+  final QuestionList filteredDogQuestionList = dogQuestionList;
+  final QuestionList filteredCatQuestionList = catQuestionList;
+  final QuestionList filteredBirdQuestionList = birdQuestionList;
+  final QuestionList filteredFishQuestionList = fishQuestionList;
 
   void moveToReminderScreen({
     required BuildContext context,

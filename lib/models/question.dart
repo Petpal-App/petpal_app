@@ -1,23 +1,19 @@
 class Question {
-  final int id;
   final String questionText;
   final List<String> options;
-  final int correctOptionIndex;
   final String videoId;
-  int status;
+  final String type;
 
   Question(
-      {required this.id,
-      required this.questionText,
+      {required this.questionText,
       required this.options,
       required this.videoId,
-      required this.status,
-      required this.correctOptionIndex});
+      required this.type});
 }
 
 class QuestionList {
-  final List<Question> questions;
-  final int count;
+  List<Question> questions;
+  int count;
 
   QuestionList({required this.questions, required this.count});
 }
