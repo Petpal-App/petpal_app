@@ -5,10 +5,10 @@ import 'package:petpal_app/models/question.dart';
 import 'package:petpal_app/models/question_model.dart';
 import 'package:petpal_app/screens/reminder_content_screen.dart';
 import 'package:petpal_app/widgets/button_content.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class ReminderCard extends StatelessWidget {
   final String type;
+  final List<String> wrongAnswers;
 
   void moveToReminderScreen({
     required BuildContext context,
@@ -27,22 +27,30 @@ class ReminderCard extends StatelessWidget {
     );
   }
 
-  ReminderCard({required this.type});
+  ReminderCard({required this.type, required this.wrongAnswers});
 
   @override
   Widget build(BuildContext context) {
-    SharedPreferences prefs;
-    List<String> wrong_answers = ["0"];
-
-    SharedPreferences.getInstance().then((value) {
-      prefs = value;
-      wrong_answers = prefs.getStringList("wrong_answers")!;
-    });
-
+    if (wrongAnswers.isEmpty) {
+      return Card(
+        elevation: 5,
+        child: ElevatedButton(
+          onPressed: () => {},
+          child: ButtonContent(
+            type: type,
+            colors: Colors.blue,
+          ),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: AppColor.greenTambourineTransparent,
+            side: BorderSide(width: 1, color: Colors.grey),
+          ),
+        ),
+      );
+    }
     final Stream<QuerySnapshot> questionStream = FirebaseFirestore.instance
         .collection('questions')
         .where('type', isEqualTo: type)
-        .where('id', whereIn: wrong_answers)
+        .where('id', whereIn: wrongAnswers.map((id) => int.parse(id)))
         .snapshots();
     return StreamBuilder<QuerySnapshot>(
         stream: questionStream,

@@ -30,12 +30,12 @@ class _QuizScreenState extends State<QuizScreen> {
 
   void _checkAnswer(int selectedIndex) async {
     final prefs = await SharedPreferences.getInstance();
-    final id = widget.questionList.questions[widget.index].id;
+    final id = widget.questionList.questions[widget.index].id.toString();
     if (selectedIndex == 0) {
       _isCorrect = true;
       List<String>? wrongAnswers = prefs.getStringList('wrong_answers');
-      if (wrongAnswers != null && wrongAnswers.contains(id.toString())) {
-        wrongAnswers.remove(id.toString());
+      if (wrongAnswers != null && wrongAnswers.contains(id)) {
+        wrongAnswers.remove(id);
         await prefs.setStringList('wrong_answers', wrongAnswers);
       }
     } else {
@@ -43,11 +43,11 @@ class _QuizScreenState extends State<QuizScreen> {
       List<String>? wrongAnswers = prefs.getStringList('wrong_answers');
       if (wrongAnswers == null) {
         wrongAnswers = [];
-        wrongAnswers.add(id.toString());
-      } else if (wrongAnswers.contains(id)) {
-        wrongAnswers.add(id.toString());
       }
-      await prefs.setStringList('wrong_answers', wrongAnswers);
+      if (!wrongAnswers.contains(id)) {
+        wrongAnswers.add(id);
+        await prefs.setStringList('wrong_answers', wrongAnswers);
+      }
       print(await prefs.getStringList('wrong_answers'));
     }
     setState(() {
