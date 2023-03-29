@@ -7,7 +7,7 @@ QuestionList dogQuestionList = (new QuestionList(questions: [
   new Question(
     id: 1,
     questionText: "영상에서 강아지는 왜 손을 핥을까요?",
-    options: ["주인 짱 좋아", "그만하세요", "배고파"],
+    options: ["그만하세요", "주인 짱 좋아", "배고파"],
     type: "dog",
     videoId: "l1zrjrCLCZw",
   ),
@@ -20,10 +20,10 @@ QuestionList dogQuestionList = (new QuestionList(questions: [
   ),
   new Question(
     id: 3,
-    questionText: "dog 문제 3",
-    options: ["정답", "오답", "오답"],
+    questionText: "강아지는 왜 땅을 팔까요?",
+    options: ["소중한 걸 숨기기 위해서", "배고파서", "보물을 찾으려고"],
     type: "dog",
-    videoId: "A2-8IDBl6bk",
+    videoId: "i8k31AVSeug",
   ),
 ], count: 3));
 
