@@ -38,7 +38,7 @@ To run the app on an Android device or emulator, use the following command:
 ```
 flutter run -d android
 ```
-**Pixel 6 Pro wil look best**
+**This app is optimized for pixel 6 pro**
 
 _Other devices may have caution lines_
 
