@@ -52,6 +52,7 @@ flutter:
     - assets/logos/petpal_logo.png
     - assets/logos/petpal_rainbow.png
     - assets/videos/mainpage_video.mp4
+    - assets/gifs/mainpage.gif
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
