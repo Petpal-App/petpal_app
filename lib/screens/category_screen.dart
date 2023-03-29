@@ -71,9 +71,7 @@ class CategoryScreen extends StatelessWidget {
               Container(
                 width: deviceWidth,
                 height: 200,
-                child: VideoPlayerWidget(
-                  videoUrl: 'assets/videos/mainpage_video.mp4',
-                ),
+                child: Image.asset('assets/gifs/mainpage.gif'),
               ),
               // Container(
               //   width: deviceWidth,
