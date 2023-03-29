@@ -1,5 +1,5 @@
 # Petpal
-`Petpal` is a Flutter application helping pet owners comprehend their pets language and provide proper training.
+`Petpal` is a Flutter application helping pet owners comprehend their pets language and provide proper training. <br>
 This guide will walk you through the steps to run the app on your local machine.
 
 # Prerequisites
