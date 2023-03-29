@@ -81,44 +81,85 @@ class _ReminderContentScreenState extends State<ReminderContentScreen> {
                 videoId: widget.questionList.questions[widget.index].videoId),
             SizedBox(height: 20),
             Text(
-              widget.questionList.questions[widget.index].questionText,
+              widget.questionList.questions[widget.index].questionText
+                  .split("/")[0],
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
                 fontFamily: Theme.of(context).textTheme.bodyMedium?.fontFamily,
               ),
             ),
+            Text(
+              widget.questionList.questions[widget.index].questionText
+                  .split("/")[1],
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                fontFamily: Theme.of(context).textTheme.bodyMedium?.fontFamily,
+              ),
+              textAlign: TextAlign.center,
+            ),
             SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () => _checkAnswer(0),
-              child: Text(
-                widget.questionList.questions[widget.index].options[0],
-                style: TextStyle(
-                  fontFamily:
-                      Theme.of(context).textTheme.bodyMedium?.fontFamily,
-                ),
-              ),
-            ),
+                onPressed: () => _checkAnswer(0),
+                child: Column(children: [
+                  Text(
+                    widget.questionList.questions[widget.index].options[0]
+                        .split("/")[0],
+                    style: TextStyle(
+                      fontFamily:
+                          Theme.of(context).textTheme.bodyMedium?.fontFamily,
+                    ),
+                  ),
+                  Text(
+                    widget.questionList.questions[widget.index].options[0]
+                        .split("/")[1],
+                    style: TextStyle(
+                      fontFamily:
+                          Theme.of(context).textTheme.bodyMedium?.fontFamily,
+                    ),
+                  ),
+                ])),
             ElevatedButton(
-              onPressed: () => _checkAnswer(1),
-              child: Text(
-                widget.questionList.questions[widget.index].options[1],
-                style: TextStyle(
-                  fontFamily:
-                      Theme.of(context).textTheme.bodyMedium?.fontFamily,
-                ),
-              ),
-            ),
+                onPressed: () => _checkAnswer(1),
+                child: Column(children: [
+                  Text(
+                    widget.questionList.questions[widget.index].options[1]
+                        .split("/")[0],
+                    style: TextStyle(
+                      fontFamily:
+                          Theme.of(context).textTheme.bodyMedium?.fontFamily,
+                    ),
+                  ),
+                  Text(
+                    widget.questionList.questions[widget.index].options[1]
+                        .split("/")[1],
+                    style: TextStyle(
+                      fontFamily:
+                          Theme.of(context).textTheme.bodyMedium?.fontFamily,
+                    ),
+                  ),
+                ])),
             ElevatedButton(
-              onPressed: () => _checkAnswer(2),
-              child: Text(
-                widget.questionList.questions[widget.index].options[2],
-                style: TextStyle(
-                  fontFamily:
-                      Theme.of(context).textTheme.bodyMedium?.fontFamily,
-                ),
-              ),
-            ),
+                onPressed: () => _checkAnswer(2),
+                child: Column(children: [
+                  Text(
+                    widget.questionList.questions[widget.index].options[2]
+                        .split("/")[0],
+                    style: TextStyle(
+                      fontFamily:
+                          Theme.of(context).textTheme.bodyMedium?.fontFamily,
+                    ),
+                  ),
+                  Text(
+                    widget.questionList.questions[widget.index].options[2]
+                        .split("/")[1],
+                    style: TextStyle(
+                      fontFamily:
+                          Theme.of(context).textTheme.bodyMedium?.fontFamily,
+                    ),
+                  ),
+                ])),
           ],
         ),
       ),
