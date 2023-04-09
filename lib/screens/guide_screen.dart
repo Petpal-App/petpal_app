@@ -40,19 +40,26 @@ class _GuideScreenState extends State<GuideScreen> {
     );
   }
 
-  ElevatedButton _answerButton(answer) {
-    return ElevatedButton(
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(AppColor.whiteColor),
-        foregroundColor: MaterialStateProperty.all(AppColor.blackColor),
-      ),
-      onPressed: _nextQuestion,
-      child: Text(
-        answer,
-        style: TextStyle(
-          fontFamily: Theme.of(context).textTheme.bodyMedium?.fontFamily,
+  Column _answerButton(answer) {
+    return Column(
+      children: [
+        ElevatedButton(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(AppColor.whiteColor),
+            foregroundColor: MaterialStateProperty.all(AppColor.blackColor),
+          ),
+          onPressed: _nextQuestion,
+          child: Text(
+            answer,
+            style: TextStyle(
+              fontFamily: Theme.of(context).textTheme.bodyMedium?.fontFamily,
+            ),
+          ),
         ),
-      ),
+        SizedBox(
+          height: widget.deviceHeight_half * 0.05,
+        ),
+      ],
     );
   }
 
