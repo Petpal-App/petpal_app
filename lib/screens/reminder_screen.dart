@@ -34,9 +34,8 @@ class ReminderScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final deviceHeight = MediaQuery.of(context).size.height -
         AppBar().preferredSize.height -
-        56 -
-        MediaQuery.of(context).padding.top -
-        MediaQuery.of(context).padding.bottom;
+        56 - // navbar height
+        MediaQuery.of(context).padding.top;
 
     return FutureBuilder<List<String>>(
         future: _getWrongAnswers(),
