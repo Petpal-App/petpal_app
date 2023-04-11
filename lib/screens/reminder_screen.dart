@@ -1,13 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:petpal_app/models/question_model.dart';
-import 'package:petpal_app/widgets/reminder_card.dart';
+import '../models/question_model.dart';
+import '../widgets/reminder_card.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../main.dart';
 import '../models/question.dart';
 import '../widgets/navbar.dart';
+import '../widgets/reminder_animal.dart';
+import '../widgets/reminder_structure.dart';
 import 'reminder_content_screen.dart';
 
 class ReminderScreen extends StatelessWidget {
@@ -30,7 +32,11 @@ class ReminderScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final deviceWidth = MediaQuery.of(context).size.width;
+    final deviceHeight = MediaQuery.of(context).size.height -
+        AppBar().preferredSize.height -
+        56 - // navbar height
+        MediaQuery.of(context).padding.top;
+
     return FutureBuilder<List<String>>(
         future: _getWrongAnswers(),
         builder: (BuildContext context, AsyncSnapshot<List<String>> snapshot) {
@@ -55,70 +61,33 @@ class ReminderScreen extends StatelessWidget {
                 ),
               ),
               body: SingleChildScrollView(
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        'Body Language',
-                        style: Theme.of(context).textTheme.labelMedium,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(40),
-                              ),
-                              height: deviceWidth * 0.3,
-                              width: deviceWidth * 0.4,
-                              margin: EdgeInsets.symmetric(
-                                  vertical: deviceWidth * 0.025),
-                              child: ReminderCard(
-                                  type: "dog", wrongAnswers: wrongAnswers)),
-                          Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(40),
-                              ),
-                              height: deviceWidth * 0.3,
-                              width: deviceWidth * 0.4,
-                              margin: EdgeInsets.symmetric(
-                                  vertical: deviceWidth * 0.025),
-                              child: ReminderCard(
-                                  type: "cat", wrongAnswers: wrongAnswers)),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(40),
-                              ),
-                              height: deviceWidth * 0.3,
-                              width: deviceWidth * 0.4,
-                              margin: EdgeInsets.symmetric(
-                                  vertical: deviceWidth * 0.025),
-                              child: ReminderCard(
-                                  type: "bird", wrongAnswers: wrongAnswers)),
-                          Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(40),
-                              ),
-                              height: deviceWidth * 0.3,
-                              width: deviceWidth * 0.4,
-                              margin: EdgeInsets.symmetric(
-                                  vertical: deviceWidth * 0.025),
-                              child: ReminderCard(
-                                  type: "fish", wrongAnswers: wrongAnswers)),
-                        ],
-                      ),
-                    ],
-                  ),
+                child: Column(
+                  children: [
+                    ReminderStructure(
+                      deviceHeight: deviceHeight,
+                      topic: 'Body Language',
+                      fstAnimal: ReminderAnimal(
+                          animal: "dog", wrongAnswers: wrongAnswers),
+                      sndAnimal: ReminderAnimal(
+                          animal: "cat", wrongAnswers: wrongAnswers),
+                      trdAnimal: ReminderAnimal(
+                          animal: "bird", wrongAnswers: wrongAnswers),
+                      fthAnimal: ReminderAnimal(
+                          animal: "fish", wrongAnswers: wrongAnswers),
+                    ),
+                    ReminderStructure(
+                      deviceHeight: deviceHeight,
+                      topic: 'Training Guide',
+                      fstAnimal: ReminderAnimal(
+                          animal: "dog", wrongAnswers: wrongAnswers),
+                      sndAnimal: ReminderAnimal(
+                          animal: "cat", wrongAnswers: wrongAnswers),
+                      trdAnimal: ReminderAnimal(
+                          animal: "bird", wrongAnswers: wrongAnswers),
+                      fthAnimal: ReminderAnimal(
+                          animal: "fish", wrongAnswers: wrongAnswers),
+                    ),
+                  ],
                 ),
               ),
               bottomNavigationBar: NavBar(
