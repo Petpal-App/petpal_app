@@ -25,7 +25,7 @@ class GuideScreen extends StatefulWidget {
 }
 
 class _GuideScreenState extends State<GuideScreen> {
-  void _nextQuestion() {
+  void _nextGuide() {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
@@ -40,7 +40,7 @@ class _GuideScreenState extends State<GuideScreen> {
     );
   }
 
-  Column _answerButton(answer) {
+  Column _guideText(guide) {
     return Column(
       children: [
         ElevatedButton(
@@ -48,9 +48,9 @@ class _GuideScreenState extends State<GuideScreen> {
             backgroundColor: MaterialStateProperty.all(AppColor.whiteColor),
             foregroundColor: MaterialStateProperty.all(AppColor.blackColor),
           ),
-          onPressed: _nextQuestion,
+          onPressed: _nextGuide,
           child: Text(
-            answer,
+            guide,
             style: TextStyle(
               fontFamily: Theme.of(context).textTheme.bodyMedium?.fontFamily,
             ),
@@ -102,7 +102,7 @@ class _GuideScreenState extends State<GuideScreen> {
             SizedBox(height: widget.deviceHeight_half * 0.13),
             Column(
               children: widget.trainingGuideList.guides[widget.index].options
-                  .map((answer) => _answerButton(answer))
+                  .map((guide) => _guideText(guide))
                   .toList(),
             ),
           ],
