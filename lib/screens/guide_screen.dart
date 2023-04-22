@@ -25,6 +25,44 @@ class GuideScreen extends StatefulWidget {
 }
 
 class _GuideScreenState extends State<GuideScreen> {
+  void _nextGuide() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+          builder: widget.index < widget.trainingGuideList.count - 1
+              ? (context) => GuideScreen(
+                    category: widget.category,
+                    trainingGuideList: widget.trainingGuideList,
+                    index: widget.index + 1,
+                    deviceHeight_half: widget.deviceHeight_half,
+                  )
+              : (context) => CategoryScreen()),
+    );
+  }
+
+  Column _guideText(guide) {
+    return Column(
+      children: [
+        ElevatedButton(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(AppColor.whiteColor),
+            foregroundColor: MaterialStateProperty.all(AppColor.blackColor),
+          ),
+          onPressed: _nextGuide,
+          child: Text(
+            guide,
+            style: TextStyle(
+              fontFamily: Theme.of(context).textTheme.bodyMedium?.fontFamily,
+            ),
+          ),
+        ),
+        SizedBox(
+          height: widget.deviceHeight_half * 0.05,
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,104 +101,9 @@ class _GuideScreenState extends State<GuideScreen> {
             ),
             SizedBox(height: widget.deviceHeight_half * 0.13),
             Column(
-              children: [
-                ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(AppColor.whiteColor),
-                    foregroundColor:
-                        MaterialStateProperty.all(AppColor.blackColor),
-                  ),
-                  onPressed: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: widget.index <
-                                  widget.trainingGuideList.count - 1
-                              ? (context) => GuideScreen(
-                                    category: widget.category,
-                                    trainingGuideList: widget.trainingGuideList,
-                                    index: widget.index + 1,
-                                    deviceHeight_half: widget.deviceHeight_half,
-                                  )
-                              : (context) => CategoryScreen()),
-                    );
-                  },
-                  child: Text(
-                    widget.trainingGuideList.guides[widget.index].options[0],
-                    style: TextStyle(
-                      fontFamily:
-                          Theme.of(context).textTheme.bodyMedium?.fontFamily,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: widget.deviceHeight_half * 0.05,
-                ),
-                ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(AppColor.whiteColor),
-                    foregroundColor:
-                        MaterialStateProperty.all(AppColor.blackColor),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: widget.index <
-                                  widget.trainingGuideList.count - 1
-                              ? (context) => GuideScreen(
-                                    category: widget.category,
-                                    trainingGuideList: widget.trainingGuideList,
-                                    index: widget.index + 1,
-                                    deviceHeight_half: widget.deviceHeight_half,
-                                  )
-                              : (context) => CategoryScreen()),
-                    );
-                  },
-                  child: Text(
-                    widget.trainingGuideList.guides[widget.index].options[1],
-                    style: TextStyle(
-                      fontFamily:
-                          Theme.of(context).textTheme.bodyMedium?.fontFamily,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: widget.deviceHeight_half * 0.05,
-                ),
-                ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(AppColor.whiteColor),
-                    foregroundColor:
-                        MaterialStateProperty.all(AppColor.blackColor),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: widget.index <
-                                  widget.trainingGuideList.count - 1
-                              ? (context) => GuideScreen(
-                                    category: widget.category,
-                                    trainingGuideList: widget.trainingGuideList,
-                                    index: widget.index + 1,
-                                    deviceHeight_half: widget.deviceHeight_half,
-                                  )
-                              : (context) => CategoryScreen()),
-                    );
-                  },
-                  child: Text(
-                    widget.trainingGuideList.guides[widget.index].options[2],
-                    style: TextStyle(
-                      fontFamily:
-                          Theme.of(context).textTheme.bodyMedium?.fontFamily,
-                    ),
-                  ),
-                ),
-              ],
+              children: widget.trainingGuideList.guides[widget.index].options
+                  .map((guide) => _guideText(guide))
+                  .toList(),
             ),
           ],
         ),
