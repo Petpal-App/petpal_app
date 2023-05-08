@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:petpal_app/screens/login_screen.dart';
 import 'dart:ui';
 import 'screens/intro_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -112,7 +113,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: IntroScreen(),
+      home: LoginScreen(),
     );
   }
 }
