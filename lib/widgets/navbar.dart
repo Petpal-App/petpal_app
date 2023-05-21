@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../screens/reminder_screen.dart';
-import '../screens/category_screen.dart';
+import '../screens/reminder/reminder_screen.dart';
+import '../screens/category/category_screen.dart';
 import '../main.dart';
 
 class NavBar extends StatelessWidget {
@@ -32,7 +32,7 @@ class NavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 56,
+      height: 30,
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import './training_guide_card_widget.dart';
-import '../datas/training_guide_data.dart';
+import '../bodylang/bodylang_question_card_widget.dart';
+import '../../datas/bodylang_question_data.dart';
 
-class TrainingListView extends StatelessWidget {
+class BodyLanguageListView extends StatelessWidget {
   final double deviceHeight;
   final double deviceWidth;
   final String cardName1;
@@ -11,7 +11,7 @@ class TrainingListView extends StatelessWidget {
   final String cardName3;
   final String cardName4;
 
-  TrainingListView({
+  BodyLanguageListView({
     required this.deviceHeight,
     required this.deviceWidth,
     required this.cardName1,
@@ -24,28 +24,28 @@ class TrainingListView extends StatelessWidget {
     return ListView(
       scrollDirection: Axis.horizontal,
       children: [
-        TrainingGuideCard(
+        QuestionCard(
           deviceHeight_half: deviceHeight / 2,
           deviceWidth_half: deviceWidth / 1.3,
-          trainingGuideList: trainingGuideList,
+          type: "dog",
           cardName: cardName1,
         ),
-        TrainingGuideCard(
+        QuestionCard(
           deviceHeight_half: deviceHeight / 2,
           deviceWidth_half: deviceWidth / 1.3,
-          trainingGuideList: trainingGuideList,
+          type: "cat",
           cardName: cardName2,
         ),
-        TrainingGuideCard(
+        QuestionCard(
           deviceHeight_half: deviceHeight / 2,
           deviceWidth_half: deviceWidth / 1.3,
-          trainingGuideList: trainingGuideList,
+          type: "bird",
           cardName: cardName3,
         ),
-        TrainingGuideCard(
+        QuestionCard(
           deviceHeight_half: deviceHeight / 2,
           deviceWidth_half: deviceWidth / 1.3,
-          trainingGuideList: trainingGuideList,
+          type: "fish",
           cardName: cardName4,
         ),
       ],

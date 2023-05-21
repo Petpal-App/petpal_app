@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:petpal_app/models/question.dart';
 
-import '../models/question_model.dart';
+
+import '../models/bodylang/bodylang_question.dart';
+import '../models/bodylang/bodylang_question_model.dart';
 
 QuestionList dogQuestionList = (new QuestionList(questions: [
   new Question(

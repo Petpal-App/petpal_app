@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:petpal_app/main.dart';
-import 'package:petpal_app/models/question.dart';
-import 'package:petpal_app/models/question_model.dart';
-import 'package:petpal_app/screens/reminder_content_screen.dart';
+import '../../models/bodylang/bodylang_question.dart';
+import '../../models/bodylang/bodylang_question_model.dart';
+import '../../screens/reminder/reminder_content_screen.dart';
 import 'package:petpal_app/widgets/button_content.dart';
 
 class ReminderCard extends StatelessWidget {

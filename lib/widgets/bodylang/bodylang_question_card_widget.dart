@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:petpal_app/main.dart';
-import 'package:petpal_app/models/question.dart';
-import 'package:petpal_app/models/question_model.dart';
-import '../screens/quiz_screen.dart';
+import '../../models/bodylang/bodylang_question.dart';
+import '../../models/bodylang/bodylang_question_model.dart';
+import '../../screens/bodylang/quiz_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class QuestionCard extends StatelessWidget {

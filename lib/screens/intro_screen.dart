@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../main.dart';
-import 'category_screen.dart';
+import 'category/category_screen.dart';
 
 class IntroScreen extends StatelessWidget {
   @override

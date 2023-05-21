@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:petpal_app/main.dart';
 
-import '../screens/guide_screen.dart';
-import '../models/training_guide.dart';
+import '../../screens/training/training_screen.dart';
+import '../../models/training/training_guide.dart';
 
 class TrainingGuideCard extends StatelessWidget {
   final double deviceHeight_half;

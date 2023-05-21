@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../main.dart';
-import '../widgets/navbar.dart';
-import '../widgets/video_player.dart';
-import '../widgets/mainpage_text_widget.dart';
-import '../widgets/mainpage_training_listview.dart';
-import '../widgets/mainpage_bodylanguage_listview.dart';
+import '../../main.dart';
+import '../../widgets/navbar.dart';
+import '../../widgets/video_player.dart';
+import '../../widgets/main/mainpage_text_widget.dart';
+import '../../widgets/main/mainpage_training_listview.dart';
+import '../../widgets/main/mainpage_bodylanguage_listview.dart';
 
 class CategoryScreen extends StatelessWidget {
   @override

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../main.dart';
-import '../screens/category_screen.dart';
-import '../widgets/video_player.dart';
-import '../widgets/youtube_player.dart';
-import '../models/training_guide.dart';
+import '../../main.dart';
+import '../category/category_screen.dart';
+import '../../widgets/video_player.dart';
+import '../../widgets/youtube_player.dart';
+import '../../models/training/training_guide.dart';
 
 class GuideScreen extends StatefulWidget {
   final String category;
@@ -64,6 +64,9 @@ class _GuideScreenState extends State<GuideScreen> {
             SizedBox(height: widget.deviceHeight_half * 0.13),
             Column(
               children: [
+                // ElevatedButton .map 으로 변환 (이후 데이터를 기반으로 바뀌게)
+                // 그럼 SizedBox는? 차라리 Container로 둘러싸고 padding을 넣거나 
+                // margin을 넣어야 하나?
                 ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor:
@@ -72,6 +75,7 @@ class _GuideScreenState extends State<GuideScreen> {
                         MaterialStateProperty.all(AppColor.blackColor),
                   ),
                   onPressed: () {
+                    // onPressed에 들어가 있는 함수 반복됨. 따로 빼야함
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../models/training_guide.dart';
+import '../models/training/training_guide.dart';
 
 TrainingGuideList trainingGuideList = (new TrainingGuideList(guides: [
   new TrainingGuide(

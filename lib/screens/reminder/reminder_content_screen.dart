@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:petpal_app/screens/reminder_screen.dart';
-import '../models/question.dart';
-import '../widgets/youtube_player.dart';
+import './reminder_screen.dart';
+import '../../models/bodylang/bodylang_question.dart';
+import '../../widgets/youtube_player.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ReminderContentScreen extends StatefulWidget {

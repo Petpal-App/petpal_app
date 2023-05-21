@@ -1,13 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:petpal_app/models/question_model.dart';
-import 'package:petpal_app/widgets/reminder_card.dart';
+import '../../models/bodylang/bodylang_question_model.dart';
+import 'package:petpal_app/widgets/reminder/reminder_card.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../main.dart';
-import '../models/question.dart';
-import '../widgets/navbar.dart';
+import '../../main.dart';
+import '../../models/bodylang/bodylang_question.dart';
+import '../../widgets/navbar.dart';
 import 'reminder_content_screen.dart';
 
 class ReminderScreen extends StatelessWidget {
@@ -81,15 +81,16 @@ class ReminderScreen extends StatelessWidget {
                               child: ReminderCard(
                                   type: "dog", wrongAnswers: wrongAnswers)),
                           Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(40),
-                              ),
-                              height: deviceWidth * 0.3,
-                              width: deviceWidth * 0.4,
-                              margin: EdgeInsets.symmetric(
-                                  vertical: deviceWidth * 0.025),
-                              child: ReminderCard(
-                                  type: "cat", wrongAnswers: wrongAnswers)),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(40),
+                            ),
+                            height: deviceWidth * 0.3,
+                            width: deviceWidth * 0.4,
+                            margin: EdgeInsets.symmetric(
+                                vertical: deviceWidth * 0.025),
+                            child: ReminderCard(
+                                type: "cat", wrongAnswers: wrongAnswers),
+                          ),
                         ],
                       ),
                       Row(

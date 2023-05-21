@@ -1,7 +1,4 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'dart:ui';
 import 'screens/intro_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';

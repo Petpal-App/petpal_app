@@ -1,4 +1,4 @@
-import 'package:petpal_app/models/question_model.dart';
+import './bodylang_question_model.dart';
 
 class QuestionList {
   List<Question> questions;

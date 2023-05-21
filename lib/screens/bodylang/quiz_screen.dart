@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../main.dart';
-import '../models/question.dart';
-import '../screens/category_screen.dart';
-import '../widgets/youtube_player.dart';
+import '../../main.dart';
+import '../../models/bodylang/bodylang_question.dart';
+import '../category/category_screen.dart';
+import '../../widgets/youtube_player.dart';
 
 class QuizScreen extends StatefulWidget {
   final String category;
